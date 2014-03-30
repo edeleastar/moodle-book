@@ -1,0 +1,20 @@
+# extends "site.html" 
+# block content 
+  
+  <nav class="ui fixed top pointing borderless inverted menu">
+    <div class="right tab-menu menu">
+      # for chapter in chapters
+          <a class="item" data-tab="{{chapter.title}}"> {{chapter.title}} </a>
+      # endfor
+    </div>
+  </nav>
+
+  <br>
+
+  # for chapter in chapters
+	  <section data-tab="{{chapter.title}}" class="ui tab stacked clarity-book segment">
+	     {{ chapter.content }}
+	  </section>
+  # endfor
+
+# endblock 

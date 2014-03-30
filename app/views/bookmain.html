@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+    <title> : {{ title }} </title>
+    <link rel="stylesheet" href="http://edeleastar.github.io/assets/style/semantic/css/semantic.min.css" type="text/css">  
+    <link rel="stylesheet" href="http://edeleastar.github.io/assets/style/custom/bookmain.css" type="text/css"> 
+    <link rel="stylesheet" href="http://edeleastar.github.io/assets/style/highlight/highlight.css">
+  </head>
+   <body>
+    # block content
+    # endblock
+  
+    <script src="http://edeleastar.github.io/assets/style/highlight/highlight.js"></script> 
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://edeleastar.github.io/assets/style/custom/jquery-2.1.0.min.js"></script> 
+    <script src="http://edeleastar.github.io/assets/style/custom/common.js"> </script> 
+    <script src="http://edeleastar.github.io/assets/style/custom/bookmain.js"> </script> 
+    
+    #if tracking
+      #include 'tracking.html'
+    #endif  
+  
+   </body>
+ </html>
