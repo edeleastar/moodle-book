@@ -9,10 +9,13 @@ class App:
    
     parser = ArgumentParser()
     parser.add_argument("-verbose", help="show details of generated files", action="store_true")
+    parser.add_argument("-pagetitles", help="Page titles based on file names, not on first headder in document. eg. '1.02.md' would have title '02'", action="store_true")
+    
     args = parser.parse_args()
    
     settings.viewsPath      = path + '/views'
     settings.verbose        = args.verbose  
+    settings.pagetitles     = args.pagetitles
     settings.templateLoader = jinja2.FileSystemLoader( searchpath=settings.viewsPath )  
     settings.templateEnv    = jinja2.Environment( loader=settings.templateLoader, trim_blocks=True, lstrip_blocks=True, line_statement_prefix='#' )
    
@@ -21,5 +24,6 @@ class App:
   def publishBook(self, book):
     self.publisher.publishBook(book)   
  
-  def publishLesson(self, book):
-    self.publisher.publishLesson(book)   
+  def publishSite(self, book):
+    self.publisher.publishSite(book)   
+        

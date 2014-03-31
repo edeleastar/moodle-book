@@ -2,29 +2,33 @@ from utils.FileUtils  import copyFolder, copyStyle
 from utils.FileUtils import writePage
 import shutil
 import settings 
+import os
 
 class Publisher:  
   def __init__(self):
-   None
+    self.public = './public'
    
-  def publishChapter(self, chapter):
-    htmlFile = './book/' + chapter.mdFile + '.html'
-    template = settings.templateEnv.get_template('chapter.html')
-    writePage(htmlFile, template.render(title=chapter.title, content=chapter.contentWithoutHeadder))
+  def copyDirectories(self, book, targetPath):
+    for directory in book.directories:
+      copyFolder (directory, './' + targetPath + '/'+ directory[2:])
+      
+  def publishPage(self, template, htmlFile, content):
+    template = settings.templateEnv.get_template(template)
+    writePage(htmlFile, template.render(content))
  
   def publishBook(self, book):
+    if os.path.exists(self.public + '/book'):
+      shutil.rmtree (self.public + '/book') 
+    self.copyDirectories(book, self.public + '/book')
     for chapter in book.chapters:
-      self.publishChapter(chapter) 
-    for directory in book.directories:
-      copyFolder (directory, './book/'+ directory[2:])
-    shutil.make_archive('book', format="zip", root_dir='./book')   
-    shutil.rmtree ('./book') 
+      self.publishPage('chapter.html', self.public + '/book/' + chapter.mdFile + '.html',  dict(title=chapter.title, content=chapter.contentWithoutHeadder))  
+    shutil.make_archive(self.public + '/book', format="zip", root_dir = self.public + '/book')   
+
     
-  def publishLesson(self, book):
-    for directory in book.directories:
-      copyFolder (directory, './site/'+ directory[2:])
-    copyStyle('./site/style')
-    htmlFile = './site/index.html'
-    template = settings.templateEnv.get_template('lesson.html')
-    writePage(htmlFile, template.render(title="demo", chapters=book.chapters))
-    shutil.make_archive('site', format="zip", root_dir='./site')   
+  def publishSite(self, book):
+    if os.path.exists(self.public + '/site'):
+      shutil.rmtree (self.public + '/site') 
+    self.copyDirectories(book, self.public + '/site')
+    copyStyle(self.public + '/site/style')
+    self.publishPage('lesson.html',self.public + '/site/index.html', dict(title="demo", chapters=book.chapters))
+    shutil.make_archive(self.public + '/site', format="zip", root_dir= self.public + '/site')   
