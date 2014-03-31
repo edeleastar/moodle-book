@@ -14,7 +14,10 @@ class Publisher:
 
   def resolveTopicPath(self, topic):
     return "../" + settings.outputfolder + '/' + topic.folderName
-    
+  
+  def resolveCoursePath(self, topic):
+    return "./" + settings.outputfolder
+   
   def remove(self, path):
     if os.path.exists(path):
       shutil.rmtree (path) 
@@ -45,3 +48,11 @@ class Publisher:
     copyStyle(self.resolveTopicPath(topic) + '/style')
     copyFolder ('./pdf', self.resolveTopicPath(topic) + '/pdf')
     self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, topic=topic))  
+    
+  def publishCourse(self, course):
+    copyStyle(self.resolveCoursePath(course) + '/style')
+    self.publishPage('course.html', self.resolveCoursePath(course) +'/index.html', dict(course=course))
+      
+    
+    
+    

@@ -1,0 +1,38 @@
+# extends "site.html"
+# block content 
+
+  <header class="ui middle aligned two column raised grid segment"> 
+    <div class="row">
+      <div class="column">
+       <h1> {{course.title}} </h1>
+      </div>
+      <div class="column">
+        <img class="ui medium image floated right" src="./style/custom/logo.png"/>
+      </div> 
+    </div>
+  </header>
+
+  <div class="ui grid">
+    <section class="ui four column wide">
+    
+      <nav class="ui vertical fluid pointing menu">
+        <div class="menu">
+          # for topic in course.topicList 
+            <a class="item" href=" ./{{topic.folder}}/index.html">  {{topic.title}} </a>
+          # endfor 
+        </div>
+      </nav>
+      
+    </section>
+        
+    <section class="ui twelve column wide">
+    
+      <section class="ui stacked segment">
+        {{course.summary}}
+      </section>
+      
+    </section>
+    
+  </div> 
+  	
+# endblock

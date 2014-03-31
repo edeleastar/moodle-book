@@ -32,5 +32,8 @@ class App:
 
   def publishTopic(self, topic):
     self.publisher.publishTopic(topic)   
+
+  def publishCourse(self, course):
+    self.publisher.publishCourse(course)   
         
         

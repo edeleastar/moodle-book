@@ -1,7 +1,6 @@
 from utils.MarkdownUtils import parse_markdown
 from os import remove
 import settings
-import re
 
 class Chapter:
   def __init__(self, mdFile):
