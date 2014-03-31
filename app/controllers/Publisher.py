@@ -41,7 +41,7 @@ class Publisher:
     self.remove (self.resolveSitePath(book))
     self.copyDirectories(book, self.resolveSitePath(book))
     copyStyle(self.resolveSitePath(book) + '/style')
-    self.publishPage('lesson.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, book=book))
+    self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, book=book))
     shutil.make_archive(self.resolveSitePath(book), format="zip", root_dir= self.resolveSitePath(book))   
     
   def publishTopic(self, topic):

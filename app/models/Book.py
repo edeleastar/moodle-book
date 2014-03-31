@@ -14,7 +14,6 @@ class Book:
     self.title = self.chapters[0].title
     root, self.topic = path.split(root)
 
-   
   def parseMarkdown(self): 
     for mdFile in self.mdFiles:
       self.chapters.append (Chapter(mdFile))  
