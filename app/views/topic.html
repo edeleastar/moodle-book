@@ -1,0 +1,40 @@
+# extends "site.html" 
+# block content 
+  
+    <section class="ui twelve column wide">
+      <section class="ui stacked segment">   
+            
+        <div class="ui celled grid">
+          <div class="ten column wide">                   
+             {{topic.content}}
+          </div>
+          
+          <div class="six vertical column wide">   
+            <h1> Slides </h1>
+             <div class="ui list">
+               # for pdf in topic.pdfs 
+                <a class="item" href="./pdf/{{pdf}}"> {{pdf}}
+                  <i class="right triangle icon"></i>
+                </a>
+               # endfor  
+           </div>
+          </div>
+                
+        </div> 
+  
+       # for lab in topic.labs 
+         <div class="ui celled grid">
+           <div class="two six column wide">
+           <h1> Lab </h1>
+              <a class="ui primary fluid button" href="./{{lab.name}}/index.html"> Start </a>
+           </div>
+           <div class="ten column wide">
+             {{lab.objectives}}
+           </div>       
+         </div>  
+       # endfor    
+           
+      </section>        
+    </section>
+
+# endblock 

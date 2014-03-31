@@ -15,7 +15,7 @@ class Chapter:
       title = first_line[1:]
       self.title = title
       
-    if settings.pagetitles:
+    if not settings.pagetitles:
       s = self.mdFile
       self.title  = s[s.find('.')+len('.'):s.rfind('.')] 
       

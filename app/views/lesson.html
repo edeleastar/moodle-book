@@ -3,7 +3,7 @@
   
   <nav class="ui fixed top pointing borderless inverted menu">
     <div class="right tab-menu menu">
-      # for chapter in chapters
+      # for chapter in book.chapters
           <a class="item" data-tab="{{chapter.title}}"> {{chapter.title}} </a>
       # endfor
     </div>
@@ -11,7 +11,7 @@
 
   <br>
 
-  # for chapter in chapters
+  # for chapter in book.chapters
 	  <section data-tab="{{chapter.title}}" class="ui tab stacked clarity-book segment">
 	     {{ chapter.content }}
 	  </section>
