@@ -6,7 +6,7 @@ from utils.CmdUtils import checkFileExists
 
 class BookSummary:
   def __init__(self, name, objectives):
-    self.name       = name;
+    self.folder  = name;
     objectivesMd = glob('./' + name + '/0*.md')
     self.objectives = parse_markdown (objectivesMd[0])
 
@@ -20,7 +20,7 @@ class Topic:
     pdfList   = glob('./pdf/*.pdf')
     for pdf in pdfList:
       self.pdfs.append(path.basename(pdf))
-    self.labs = []
-    labList = glob('./book*')  
-    for lab in labList:
-      self.labs.append( BookSummary(path.basename(lab), "") )
+    self.bookList = []
+    books = glob('./book*')  
+    for lab in books:
+      self.bookList.append( BookSummary(path.basename(lab), "") )

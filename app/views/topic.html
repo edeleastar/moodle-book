@@ -22,14 +22,14 @@
                 
         </div> 
   
-       # for lab in topic.labs 
+       # for book in topic.bookList 
          <div class="ui celled grid">
            <div class="two six column wide">
            <h1> Lab </h1>
-              <a class="ui primary fluid button" href="./{{lab.name}}/index.html"> Start </a>
+              <a class="ui primary fluid button" href="./{{book.folder}}/index.html"> Start </a>
            </div>
            <div class="ten column wide">
-             {{lab.objectives}}
+             {{book.objectives}}
            </div>       
          </div>  
        # endfor    

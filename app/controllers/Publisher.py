@@ -3,6 +3,9 @@ from utils.FileUtils import writePage
 import shutil
 import settings 
 import os
+from models.Topic    import Topic  
+from models.Book     import Book  
+
 
 class Publisher:  
 
@@ -31,6 +34,7 @@ class Publisher:
     writePage(htmlFile, template.render(content))
  
   def publishBook(self, book):
+    print ('  -->' + book.title)
     self.remove (self.resolveBookPath(book))
     self.copyDirectories(book, self.resolveBookPath(book))
     for chapter in book.chapters:
@@ -45,13 +49,26 @@ class Publisher:
     shutil.make_archive(self.resolveSitePath(book), format="zip", root_dir= self.resolveSitePath(book))   
     
   def publishTopic(self, topic):
+
     copyStyle(self.resolveTopicPath(topic) + '/style')
     copyFolder ('./pdf', self.resolveTopicPath(topic) + '/pdf')
-    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, topic=topic))  
+    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, topic=topic)) 
+    topicDir = os.getcwd() 
+    for book in topic.bookList:
+      os.chdir(topicDir + '/' + book.folder)
+      book = Book()
+      self.publishBook(book)
+      self.publishLab(book)
     
   def publishCourse(self, course):
     copyStyle(self.resolveCoursePath(course) + '/style')
     self.publishPage('course.html', self.resolveCoursePath(course) +'/index.html', dict(course=course))
+    courseDir = os.getcwd()
+    for topic in course.topicList:
+      print ('Writing ' + topic.folder)
+      os.chdir(courseDir + '/' + topic.folder)
+      topic = Topic()
+      self.publishTopic(topic)
       
     
     
