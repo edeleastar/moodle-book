@@ -1,15 +1,15 @@
-moolde-book
+moodle-book
 ============
 
-Course Creation tool
+A Course Creation tool for generating moodle books and general moodle-independent static course web sites
 
 ##Introduction
 
-This is the home page for the moodle-book course creation tool. It is designed to generate a static web site from a set of course materials, largely written in Markdown format.
-
-A demo of the system is visible here:
+This is the home page for the moodle-book course creation tool. It is designed to generate a static web site from a set of course materials, largely written in Markdown format. A demo of the system is visible here:
 
 - [moodle-book-skeleton-site](http://edeleastar.github.io/moodle-book-skeleton/public)
+
+In addition, it will generate [moodle books](http://docs.moodle.org/26/en/Book_module) for upload to a Moodle virtual learning service
 
 This 'source' for this demo course can be cloned from this public repo:
 
@@ -42,7 +42,7 @@ If running on mac/linux, place './moodle-book/app' on the path. If running windo
 
 To test the system, clone the demo repository:
 
-- [moodle-book-skeleton](https://github.com/edeleastar/moodle-book-skeleton)([zip](https://github.com/edeleastar/moodle-book-skeleton/archive/master.zip))
+- [moodle-book-skeleton](https://github.com/edeleastar/moodle-book-skeleton) ([zip](https://github.com/edeleastar/moodle-book-skeleton/archive/master.zip))
 
 Run a shell/command prompt and change into the moolde-demo-skeleton folder.
 
@@ -135,7 +135,7 @@ In the above lab, the static site will have titles 'Lab-01', '01', '02' ... 'Exe
 
 ##The mb.py command
 
-The 'mb.py' command can be run from any of the folders. If within a book, it will just generate the book resources. If in a topic, it will generate the topic resorce + all contained books. And if in the course (top level) folder, it will generate the complete course. It always generates this to the './public' folder.
+The `mb.py` command can be run from any of the folders. If within a book, it will just generate the book resources. If in a topic, it will generate the topic resorce + all contained books. And if in the course (top level) folder, it will generate the complete course. It always generates this to the './public' folder.
 
 ##Customisation
 
