@@ -1,6 +1,33 @@
 # extends "main.html" 
 # block content 
+
+    <header class="ui middle aligned two column raised grid segment"> 
+    <div class="row">
+      <div class="column">
+       <h1> <a href="../index.html"> {{course.title}} </a></h1>
+       <h3> {{course.programme}}</h3>
+      </div>
+      <div class="column">
+        <img class="ui medium image floated right" src="./style/custom/logo.png"/>
+      </div> 
+    </div>
+  </header>
   
+  <section class="ui grid">
+    <section class="ui four column wide">
+      <nav class="ui vertical fluid pointing menu">
+        <div class="menu">
+          # for currentTopic in course.topicList
+            # if currentTopic == topic  
+              <a class="active item" href=" ../{{currentTopic.folder}}/index.html">  {{currentTopic.title}} </a>
+            # else 
+              <a class="item" href=" ../{{currentTopic.folder}}/index.html">  {{currentTopic.title}} </a>
+            # endif  
+          # endfor 
+        </div>
+      </nav>            
+    </section>
+        
     <section class="ui twelve column wide">
       <section class="ui stacked segment">   
             
@@ -14,12 +41,11 @@
              <div class="ui list">
                # for pdf in topic.pdfs 
                 <a class="item" href="./pdf/{{pdf}}"> {{pdf}}
-                  <i class="right triangle icon"></i>
+                  <i class="right triangle icon"> </i>
                 </a>
                # endfor  
            </div>
           </div>
-                
         </div> 
   
        # for book in topic.bookList 
@@ -33,8 +59,7 @@
            </div>       
          </div>  
        # endfor    
-           
       </section>        
     </section>
-
+</section>
 # endblock 

@@ -11,10 +11,9 @@ class Chapter:
     self.mdFile  = mdFile 
     self.content = parse_markdown(mdFile)
     self.title   = getHeadder(mdFile)
-
-    if not settings.pagetitles:
-      s = self.mdFile
-      self.title  = s[s.find('.')+len('.'):s.rfind('.')] 
+    
+    s = self.mdFile
+    self.shortTitle  = s[s.find('.')+len('.'):s.rfind('.')] 
       
     with open(mdFile, 'r') as fin:
       data = fin.read().splitlines(True)

@@ -2,9 +2,10 @@
 # block content 
   
   <nav class="ui fixed top pointing borderless inverted menu">
+    <header class="header item"> <a href="../index.html">{{topic.title}}</a></header>
     <div class="right tab-menu menu">
       # for chapter in book.chapters
-          <a class="item" data-tab="{{chapter.title}}"> {{chapter.title}} </a>
+          <a class="item" data-tab="{{chapter.shortTitle}}"> {{chapter.shortTitle}} </a>
       # endfor
     </div>
   </nav>
@@ -12,7 +13,7 @@
   <br>
 
   # for chapter in book.chapters
-	  <section data-tab="{{chapter.title}}" class="ui tab stacked clarity-book segment">
+	  <section data-tab="{{chapter.shortTitle}}" class="ui tab stacked clarity-book segment">
 	     {{ chapter.content }}
 	  </section>
   # endfor
