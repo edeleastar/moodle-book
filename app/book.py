@@ -7,4 +7,5 @@ if __name__ == "__main__":
   app = App(path.dirname(path.realpath(__file__)))
   book = Book()
   app.publishBook(book) 
+  app.publishLab(book)
   

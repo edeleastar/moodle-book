@@ -1,19 +1,17 @@
 from utils.MarkdownUtils import parse_markdown
 from os import remove
 import settings
+from utils.FileUtils import getHeadder
 
 class Chapter:
   def __init__(self, mdFile):
     self.parse(mdFile)
    
   def parse(self, mdFile):
-    self.mdFile = mdFile 
-    self.content  = parse_markdown(mdFile)
-    with open(mdFile, 'r') as f:
-      first_line = f.readline() 
-      title = first_line[1:]
-      self.title = title
-      
+    self.mdFile  = mdFile 
+    self.content = parse_markdown(mdFile)
+    self.title   = getHeadder(mdFile)
+
     if not settings.pagetitles:
       s = self.mdFile
       self.title  = s[s.find('.')+len('.'):s.rfind('.')] 

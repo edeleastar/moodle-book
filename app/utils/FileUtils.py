@@ -47,3 +47,10 @@ def read_data_from_file(file_location):
   with codec_open(file_location, mode="r", encoding="utf-8") as f:
     data = f.read()
     return data
+  
+def getHeadder(fromFile):
+  with open(fromFile, 'r') as f:
+    first_line = f.readline() 
+    title = first_line[1:]
+  return title
+    
