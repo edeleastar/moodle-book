@@ -131,7 +131,9 @@ Each book then contains the 'chapters' in the book, numbered as  `Number.Title.m
 - 05.05.md
 - 06.Exercises.md
 
-In the above lab, the static site will have titles 'Lab-01', '01', '02' ... 'Exercises'. However, when loaded as a 'book' resource onto moodle, the actual content title (for each page) will be used.
+In the above lab, the static site will have titles 'Lab-01', '01', '02' ... 'Exercises'. However, when loaded as a 'book' resource onto moodle, the actual content title (for each page) will be used. 
+
+If one of the chapters needs images or other resources, then can be placed in subdirectories of the book and will be encapsulated into the generated site/resource. Use standard markdown relative linking (examples in the moodle-book-skeleton). 
 
 ##The mb.py command
 
