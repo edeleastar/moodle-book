@@ -13,7 +13,7 @@ class BookSummary:
 class Topic:
   def __init__(self):
     checkFileExists ('topic.md', 'topic.py')   
-    root, self.folderName  = path.split(getcwd())
+    root, self.folder  = path.split(getcwd())
     self.content  = parse_markdown('topic.md')
     self.title    = getHeadder('topic.md')
     self.pdfs = []

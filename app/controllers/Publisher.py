@@ -16,7 +16,7 @@ class Publisher:
     return '../../' + settings.outputfolder + '/' + book.topic + '/' + book.folderName    
 
   def resolveTopicPath(self, topic):
-    return "../" + settings.outputfolder + '/' + topic.folderName
+    return "../" + settings.outputfolder + '/' + topic.folder
   
   def resolveCoursePath(self, topic):
     return "./" + settings.outputfolder

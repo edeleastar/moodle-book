@@ -18,7 +18,7 @@
       <nav class="ui vertical fluid pointing menu">
         <div class="menu">
           # for currentTopic in course.topicList
-            # if currentTopic == topic  
+            # if currentTopic.folder == topic.folder  
               <a class="active item" href=" ../{{currentTopic.folder}}/index.html">  {{currentTopic.title}} </a>
             # else 
               <a class="item" href=" ../{{currentTopic.folder}}/index.html">  {{currentTopic.title}} </a>
