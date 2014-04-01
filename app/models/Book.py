@@ -1,6 +1,7 @@
 from glob import glob
 from Chapter import Chapter
 from os import walk, getcwd, path
+import sys;
 
 class Book:
   def __init__(self):
@@ -15,6 +16,10 @@ class Book:
     root, self.topic = path.split(root)
 
   def parseMarkdown(self): 
+    anyFiles = glob('0*.md')
+    if len(anyFiles) == 0:
+      print ('Cannot find any markdown files - you must run this command from a course, topic or book folder')
+      sys.exit()
     for mdFile in self.mdFiles:
       self.chapters.append (Chapter(mdFile))  
            
