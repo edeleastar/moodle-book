@@ -3,6 +3,7 @@ import sys
 import shutil
 from codecs import open as codec_open
 import settings
+from os import  path
   
 def ensure_dir(path):
   if not os.path.exists(path):
@@ -54,3 +55,22 @@ def getHeadder(fromFile):
     title = first_line[1:]
   return title
     
+def getContributors():
+  contributors = ""
+  creditPath = 'credits' 
+  if not path.exists(creditPath):  
+    creditPath = '../' + creditPath
+  if not path.exists(creditPath):  
+    creditPath = '../' + creditPath
+  if path.exists(creditPath):   
+     with open(creditPath, 'r') as f:
+       contributors = f.readline()   
+  return contributors     
+       
+       
+       
+       
+       
+       
+       
+       

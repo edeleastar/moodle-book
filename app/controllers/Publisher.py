@@ -1,5 +1,5 @@
 from utils.FileUtils  import copyFolder, copyStyle
-from utils.FileUtils import writePage
+from utils.FileUtils import writePage, getContributors
 import shutil
 import settings 
 import os
@@ -31,6 +31,7 @@ class Publisher:
       
   def publishPage(self, template, htmlFile, content):
     template = settings.templateEnv.get_template(template)
+    content.update ({'contributors':getContributors()})
     writePage(htmlFile, template.render(content))
  
   def publishBook(self, book):
