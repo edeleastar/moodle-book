@@ -90,6 +90,7 @@ The course structure is derived from conventions represented in the directory an
 ~~~
 ├── course.md
 ├── credits
+├── mbignore
 ├── topic01
 │   ├── book
 │   │   ├── 00.Lab-01.md
@@ -116,6 +117,7 @@ The course structure is derived from conventions represented in the directory an
 
 - course.md: Course title + summary
 - credits: list of contributors
+- mbignore: list of topics which are to be excluded for course publish
 - topic01: the first topic
 - topic02: the second topic
 - etc..
