@@ -55,6 +55,13 @@ def getHeadder(fromFile):
     title = first_line[1:]
   return title
     
+def getIgnoreList():
+  if path.isfile('mbignore'): 
+    return [word for line in open('mbignore', 'r') for word in line.split()] 
+  else:
+    return []
+     
+    
 def getContributors():
   contributors = ""
   creditPath = 'credits' 
