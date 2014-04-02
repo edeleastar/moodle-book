@@ -88,7 +88,7 @@ Writing topic03
 
 Open the ./public/index.html folder and it should resemble:
 
-- [moodle-book-skeleton](https://github.com/edeleastar/moodle-book-skeleton)
+- [moodle-book-skeleton-site](http://edeleastar.github.io/moodle-book-skeleton/public)
 
 ##Structure
 
@@ -153,11 +153,11 @@ The `mb.py` command can be run from any of the folders. If within a book, it wil
 
 ##Customisation
 
-The 'moodke-book/app/view' folder:
+The 'moodle-book/app/view' folder:
 
 - [views](https://github.com/edeleastar/moodle-book/tree/master/app/views)
 
-contains templates adhering to the [jinja2](http://jinja.pocoo.org/docs/templates/) templating language, and styled using [Semantic ui](http://semantic-ui.com/) These templates are defined:
+contains templates adhering to the [jinja2](http://jinja.pocoo.org/docs/templates/) templating language, and styled using [Semantic ui](http://semantic-ui.com/). These templates are defined:
 
 - bookmain.html
 - chapter.html
