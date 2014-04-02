@@ -7,6 +7,7 @@ A Course Creation tool for generating moodle books + a general moodle-independen
 
 The `moodle book` command-line course creation tool will generate a set of moodle books:
 - [Moodle Books](http://docs.moodle.org/26/en/Book)
+
 based on folders and files of markdown content:
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
@@ -17,23 +18,18 @@ The tool also generates a static web site from the course materials, containing 
 The moodle books [are generated as zip archives, ready for upload to a Moodle virtual learning service
 
 This 'source' for this demo course can be cloned from this public repo:
-
 - [moodle-book-skeleton](https://github.com/edeleastar/moodle-book-skeleton)
 
 or directly downloaded as a zip here:
-
 - [moodle-book-skeleton.zip](https://github.com/edeleastar/moodle-book-skeleton/archive/master.zip)
 
 The content is styled using the Semantic UI framework:
-
 - <http://semantic-ui.com/>
 
 Additionally, source code is syntax highlighted using the Highlight.js library:
-
 - <http://highlightjs.org/>
 
 This is incorporated as `fenced code blocks`, an example here:
-
 - [code blocks](http://edeleastar.github.io/moodle-book-skeleton/public/topic01/book/index.html#/02)
 
 ##Installation
