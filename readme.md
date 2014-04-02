@@ -6,11 +6,8 @@ A Course Creation tool for generating moodle books + a general moodle-independen
 ##Introduction
 
 The `moodle book` command-line course creation tool will generate a set of moodle books:
-
 - [Moodle Books](http://docs.moodle.org/26/en/Book)
-
 based on folders and files of markdown content:
-
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 The tool also generates a static web site from the course materials, containing additional content encapsulating topic outlines, pdf slides and overall course structure. A demo of the system is visible here:
