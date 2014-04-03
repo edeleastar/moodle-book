@@ -12,7 +12,7 @@ class Book:
     folders.pop(0)
     self.directories = [ folder for folder in folders if not (folder.startswith('./public'))  ]
     root, self.folderName  = path.split(getcwd())
-    self.title = self.chapters[0].title
+    self.title = self.chapters[0].shortTitle
     root, self.topic = path.split(root)
 
   def parseMarkdown(self): 
