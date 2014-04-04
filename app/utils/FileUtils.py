@@ -73,7 +73,19 @@ def getContributors():
      with open(creditPath, 'r') as f:
        contributors = f.readline()   
   return contributors     
-       
+
+def getAnalyticCode(codeFileName):
+  trackingCode = ""
+  gaPath = codeFileName 
+  if not path.exists(gaPath):  
+    gaPath = '../' + gaPath
+  if not path.exists(gaPath):  
+    gaPath = '../' + gaPath
+  if path.exists(gaPath):   
+     with open(gaPath, 'r') as f:
+       trackingCode = f.readline()   
+  return trackingCode      
+  
        
        
        

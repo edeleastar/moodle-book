@@ -6,30 +6,40 @@ A Course Creation tool for generating moodle books + a general moodle-independen
 ##Introduction
 
 The `moodle book` command-line course creation tool will generate a set of moodle books:
+
 - [Moodle Books](http://docs.moodle.org/26/en/Book)
 
 based on folders and files of markdown content:
+
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 The tool also generates a static web site from the course materials, containing additional content encapsulating topic outlines, pdf slides and overall course structure. A demo of the system is visible here:
 
 - [moodle-book-skeleton-site](http://edeleastar.github.io/moodle-book-skeleton/public)
 
-The moodle books [are generated as zip archives, ready for upload to a Moodle virtual learning service
+A more comprehensive course created with the tools is here:
 
-This 'source' for this demo course can be cloned from this public repo:
+- [design-patterns](http://edeleastar.github.io/design-patterns)
+
+The moodle books are generated as zip archives, ready for upload to a Moodle virtual learning service
+
+This 'source' for the demo course can be cloned from this public repo:
+
 - [moodle-book-skeleton](https://github.com/edeleastar/moodle-book-skeleton)
 
 or directly downloaded as a zip here:
 - [moodle-book-skeleton.zip](https://github.com/edeleastar/moodle-book-skeleton/archive/master.zip)
 
 The content is styled using the Semantic UI framework:
+
 - <http://semantic-ui.com/>
 
 Additionally, source code is syntax highlighted using the Highlight.js library:
+
 - <http://highlightjs.org/>
 
 This is incorporated as `fenced code blocks`, an example here:
+
 - [code blocks](http://edeleastar.github.io/moodle-book-skeleton/public/topic01/book/index.html#/02)
 
 ##Installation
@@ -184,6 +194,18 @@ The full course web can be hosted on an hosting service. On guthub, create repos
 Bitbucket have a similiar mechanism for hosting static sites:
 
 - [Hosting Static Sites on Bitbucket](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket)
+
+##Analytics
+
+If you place a file called 'ga' in the root of the course containin a valid Google Analytics code, for example:
+
+~~~
+UA-12345678-2
+~~~
+
+The appropriate Google Analytics code is inserted into each page. These codes can be created, and the web site traffic monitored, on the [Google Analytics](http://www.google.ie/analytics/) site.
+
+
 
 
 
