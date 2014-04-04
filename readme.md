@@ -79,12 +79,9 @@ If all goes smoothly, you should see on the console a list of the topics as they
 Publishing full course
 Writing topic01
   -->Lab 01
-
 Writing topic02
   -->Lab 02-A
-
   -->Lab 02-B
-
 Writing topic03
   -->Lab 03
 ~~~
@@ -101,6 +98,7 @@ The course structure is derived from conventions represented in the directory an
 ├── course.md
 ├── credits
 ├── mbignore
+├── ga
 ├── topic01
 │   ├── book
 │   │   ├── 00.Lab-01.md
@@ -127,7 +125,8 @@ The course structure is derived from conventions represented in the directory an
 
 - course.md: Course title + summary
 - credits: list of contributors
-- mbignore: list of topics which are to be excluded for course publish
+- mbignore: list of topics which are to be excluded for course publish (optionl)
+- ga: a google analytics tracking code (optional)
 - topic01: the first topic
 - topic02: the second topic
 - etc..
@@ -154,7 +153,7 @@ If one of the chapters needs images or other resources, then can be placed in su
 
 ##The mb.py command
 
-The `mb.py` command can be run from any of the folders. If within a book, it will just generate the book resources. If in a topic, it will generate the topic resorce + all contained books. And if in the course (top level) folder, it will generate the complete course. It always generates this to the './public' folder.
+The `mb.py` command can be run from any of the folders. If within a book, it will just generate the book resources. If in a topic, it will generate the topic resorce + all contained books. And if in the course (top level) folder, it will generate the complete course (excluding any topics listed in the optional mbignore file). It always generates this to the './public' folder.
 
 ##Customisation
 
@@ -181,13 +180,13 @@ Additionally, there are other opportunities for customisation in this folder '/m
 
 There are two options for hosting the individual 'books' on moodle.
 
-1. Use the Moodle `book` feature. To do this, create a 'book' resource in moodle, and, once created, select 'import chapter'. You can then drag/drop the book archive into the prompted pane in moodle. The book archive, which is in the appropriate folder in the './public' folder, will typically be called `book.zip` (or perhaps book-01.zip if you have several books per topic). Once you press 'import' and then 'continue' moodle will create a book resource in your topic, including a correct ToC based on actual chapter headers.
+1. Use the Moodle `book` feature. To do this, create a 'book' resource in moodle, and, once created, select 'import chapter'. You can then drag/drop the book archive into the prompted pane in moodle. The book archive, which is in the appropriate folder in the './public' folder, will typically be called `book.zip` (or perhaps book-01.zip if you have several books per topic). Once you press 'import' and then 'continue' moodle will create a book resource in your topic, including a correct ToC based on actual chapter titles.
 
-2. The generated lab folders (called book-archive.zip) can be dropped straight onto a moodle topic, and unarchived there. Set the 'main page' to the first html page of the lab. 
+2. A standalone version of the ook (called book-archive.zip) can be dropped straight onto a moodle topic, and unarchived there. Set the 'main page' to the first html page of the lab. 
 
 ###On Github
 
-The full course web can be hosted on an hosting service. On guthub, create repository, and create a branch called 'gh-pages'. Commit the './public' folder to this branch and push to github. The course will be available on 'yourname.github.io/repisitoryname/public'
+The full course web can be hosted on any hosting service. On guthub, create repository, and create a branch called 'gh-pages'. Commit the './public' folder to this branch and push to github. The course will be available on 'yourname.github.io/repisitoryname'
 
 ###On Bitbucket:
 
@@ -197,13 +196,13 @@ Bitbucket have a similiar mechanism for hosting static sites:
 
 ##Analytics
 
-If you place a file called 'ga' in the root of the course containin a valid Google Analytics code, for example:
+If you place a file called 'ga' in the root of the course containing a valid Google Analytics code, for example:
 
 ~~~
 UA-12345678-2
 ~~~
 
-The appropriate Google Analytics code is inserted into each page. These codes can be created, and the web site traffic monitored, on the [Google Analytics](http://www.google.ie/analytics/) site.
+The appropriate Google Analytics js fragment is inserted into each page. These codes can be created, and the web  traffic monitored, on the [Google Analytics](http://www.google.ie/analytics/) site.
 
 
 
