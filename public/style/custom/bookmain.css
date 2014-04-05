@@ -1,31 +1,31 @@
 
-.clarity-book code 
+.moodle-book code 
 {
 	font-family: "Monaco";
 	font-size: 110%;
 }
 
-.clarity-book h1 
+.moodle-book h1 
 {
   font-style:italic;
   font-size:120%;
   border-bottom: thin solid DarkBlue;
 }
 
-.clarity-book h2 
+.moodle-book h2 
 {
   font-size:110%;
   border-bottom: thin solid DarkBlue;
 }
 
-.clarity-book h3 
+.moodle-book h3 
 {
   font-size:100%;
   border-bottom: thin solid DarkBlue;
 }
 
 
-.clarity-book img
+.moodle-book img
 {
    padding:1px;
    border:1px solid DarkBlue;
@@ -33,13 +33,13 @@
    margin-bottom: 10px;
 }
 
-.clarity-book header img 
+.moodle-book header img 
 {
    padding:1px;
    border:0px solid DarkBlue;
 }
 
-.clarity-book header  h1 
+.moodle-book header  h1 
 {
   font-style:normal;
   font-size:120%;
@@ -53,7 +53,7 @@ book header h2 .
   border-bottom: 0px;
 }
 
- .clarity-book header  h3
+ .moodle-book header  h3
 {
   font-style:normal;
   font-size:90%;

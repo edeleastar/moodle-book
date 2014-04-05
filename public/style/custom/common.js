@@ -1,6 +1,6 @@
 
 function addCaptions() {
-  var images = $(".clarity-book img");
+  var images = $(".moodle-book img");
   jQuery.each(images, function(i)  {
     if((images[i].alt).length > 0) 
     {
@@ -10,7 +10,7 @@ function addCaptions() {
       div_label.append(images[i].alt);
       $(div_label).insertBefore(images[i]);
     }
-  })
+  });
 };
 
 // Need to check if we have already been loaded
@@ -21,8 +21,8 @@ $(document).ready(function()
   if (seen == 0)
   { 
     // not loaded before - so do the restyling once (need to moodle book print)
-    $(".clarity-book img").addClass ("ui image");
-    $(".clarity-book pre").addClass ("ui stacked segment");
+    $(".moodkle-book img").addClass ("ui image");
+    $(".moodle-book  pre").addClass ("ui stacked segment");
     addCaptions();
     seen = 1;
   }

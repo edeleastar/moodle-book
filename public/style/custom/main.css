@@ -14,17 +14,17 @@ h1
 {
   font-style:italic;
   font-size:120%;
-  border-bottom: thin solid DarkBlue;
+  border-bottom: thin solid black;
 }
 h2 
 {
   font-size:110%;
-  border-bottom: thin solid DarkBlue;
+  border-bottom: thin solid black;
 }
 h3 
 {
   font-size:100%;
-  border-bottom: thin solid DarkBlue;
+  border-bottom: thin solid black;
 }
 
 #footertext 
@@ -44,7 +44,7 @@ h3
 img 
 {
    padding:1px;
-   border:1px solid DarkBlue;
+   border:1px solid black;
    margin-top: 10px;
    margin-bottom: 10px;
 }
@@ -52,7 +52,7 @@ img
 header img
 {
 	 padding:1px;
-   border:0px solid DarkBlue;
+   border:0px solid black;
 }
 
 header h1
