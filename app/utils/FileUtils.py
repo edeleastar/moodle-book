@@ -84,6 +84,7 @@ def getAnalyticCode(codeFileName):
   if path.exists(gaPath):   
      with open(gaPath, 'r') as f:
        trackingCode = f.readline()   
+  trackingCode = trackingCode .replace('\n', '')
   return trackingCode      
   
        
