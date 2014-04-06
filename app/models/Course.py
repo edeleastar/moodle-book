@@ -6,6 +6,7 @@ from utils.CmdUtils import checkFileExists
 class TopicSummary:
   def __init__(self, folder):
     self.folder = folder;
+    checkFileExists (folder + '/topic.md')
     self.title = getHeadder(folder + '/topic.md')
     
 class Course:
