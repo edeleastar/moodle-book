@@ -8,6 +8,10 @@ class BookSummary:
   def __init__(self, name, objectives):
     self.folder  = name;
     objectivesMd = glob('./' + name + '/0*.md')
+    if len(objectivesMd) == 0:
+      print ('Cannot locate lab steps in ' + self.folder +  '. Lab steps must be named 0X.XX.md')
+      exit()
+      
     self.objectives = parse_markdown (objectivesMd[0])
 
 class Topic:
