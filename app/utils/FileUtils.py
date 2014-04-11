@@ -87,8 +87,9 @@ def getAnalyticCode(codeFileName):
   trackingCode = trackingCode .replace('\n', '')
   return trackingCode      
   
-       
-       
+def write(filename, s):       
+  with  open(filename,'w') as myfile:
+    myfile.write(s)       
        
        
        
