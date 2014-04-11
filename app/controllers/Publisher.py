@@ -41,7 +41,7 @@ class Publisher:
     self.remove (self.resolveBookPath(book))
     self.copyDirectories(book, self.resolveBookPath(book))
     for chapter in book.chapters:
-      self.publishPage('chapter.html', self.resolveBookPath(book) + '/' + chapter.mdFile + '.html',  dict(title=chapter.title, content=chapter.contentWithoutHeadder))  
+      self.publishPage('chapter.html', self.resolveBookPath(book) + '/' + chapter.file + '.html',  dict(title=chapter.title, content=chapter.contentWithoutHeadder))  
     shutil.make_archive(self.resolveBookPath(book), format="zip", root_dir = self.resolveBookPath(book))   
     shutil.rmtree(self.resolveBookPath(book));
 
