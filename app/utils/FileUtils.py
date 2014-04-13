@@ -53,6 +53,7 @@ def getHeadder(fromFile):
   with open(fromFile, 'r') as f:
     first_line = f.readline() 
     title = first_line[1:]
+  title = title.replace('\n', '')
   return title
     
 def getIgnoreList():

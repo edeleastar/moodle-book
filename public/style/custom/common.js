@@ -21,8 +21,8 @@ $(document).ready(function()
   if (seen == 0)
   { 
     // not loaded before - so do the restyling once (need to moodle book print)
-    $(".moodkle-book img").addClass ("ui image");
-    $(".moodle-book  pre").addClass ("ui stacked segment");
+    $(".moodle-book img").addClass ("ui image");
+    $(".moodle-book pre").addClass ("ui stacked segment");
     addCaptions();
     seen = 1;
   }

@@ -57,7 +57,10 @@ class Publisher:
     self.remove (self.resolveSitePath(book))
     self.copyDirectories(book, self.resolveSitePath(book))
     copyStyle(self.resolveSitePath(book) + '/style')
-    self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
+    if settings.bootstrap:
+      self.publishPage('labbootstrap.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
+    else:  
+      self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
     shutil.make_archive(self.resolveSitePath(book) + '-archive', format="zip", root_dir= self.resolveSitePath(book))   
     
   def publishTopic(self, topic):
