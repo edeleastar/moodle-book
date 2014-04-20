@@ -17,8 +17,10 @@ The tool also generates a static web site from the course materials, containing 
 
 - [moodle-book-skeleton-site](http://edeleastar.github.io/moodle-book-skeleton/public)
 
-A more comprehensive course created with the tools is here:
+A more comprehensive set of courses created with the tools are here:
 
+- (Application Development & Modelling)[http://edeleastar.github.io/app-dev-modelling]
+- (Agile Software Development)[http://edeleastar.github.io/agile-software-dev]
 - [design-patterns](http://edeleastar.github.io/design-patterns)
 
 The moodle books are generated as zip archives, ready for upload to a Moodle virtual learning service
