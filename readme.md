@@ -19,8 +19,8 @@ The tool also generates a static web site from the course materials, containing 
 
 A more comprehensive set of courses created with the tools are here:
 
-- (Application Development & Modelling)[http://edeleastar.github.io/app-dev-modelling]
-- (Agile Software Development)[http://edeleastar.github.io/agile-software-dev]
+- [Application Development & Modelling](http://edeleastar.github.io/app-dev-modelling)
+- [Agile Software Development](http://edeleastar.github.io/agile-software-dev)
 - [design-patterns](http://edeleastar.github.io/design-patterns)
 
 The moodle books are generated as zip archives, ready for upload to a Moodle virtual learning service
