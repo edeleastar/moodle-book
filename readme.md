@@ -19,7 +19,9 @@ The tool also generates a static web site from the course materials, containing 
 
 A more comprehensive set of courses created with the tools are here:
 
+- [Web Development](http://edeleastar.github.io/web-development)
 - [Application Development & Modelling](http://edeleastar.github.io/app-dev-modelling)
+- [Mobile Application Development](http://edeleastar.github.io/mobile-app-dev)
 - [OpenGL Programming in C++](http://edeleastar.github.io/opengl-programming)
 - [Agile Software Development](http://edeleastar.github.io/agile-software-dev)
 - [Design Patterns](http://edeleastar.github.io/design-patterns)
