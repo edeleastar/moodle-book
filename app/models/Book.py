@@ -23,6 +23,3 @@ class Book:
       sys.exit()
     for mdFile in self.mdFiles:
       self.chapters.append (ChapterMd(mdFile))  
-      
-   # self.chapters.append(ChapterQuiz('03.0Q.yaml'))  
-           

@@ -38,5 +38,7 @@ class App:
 
   def publishCourse(self, course):
     self.publisher.publishCourse(course)   
-        
+
+  def publishProfile(self, profile):
+    self.publisher.publishProfile(profile)           
         

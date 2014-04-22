@@ -20,6 +20,9 @@ class Publisher:
   
   def resolveCoursePath(self, topic):
     return "./" + settings.outputfolder
+
+  def resolveProfilePath(self, topic):
+    return "./" + settings.outputfolder
    
   def remove(self, path):
     if os.path.exists(path):
@@ -91,7 +94,10 @@ class Publisher:
       os.chdir(courseDir + '/' + topic.folder)
       topic = Topic()
       self.publishTopicInCourse(course, topic)
-      
+
+  def publishProfile(self, profile):
+    copyStyle(self.resolveCoursePath(profile) + '/style')
+    self.publishPage('profile.html', self.resolveCoursePath(profile) +'/index.html', dict(profile=profile))    
     
     
     

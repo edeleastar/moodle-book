@@ -61,7 +61,6 @@ def getIgnoreList():
     return [word for line in open('mbignore', 'r') for word in line.split()] 
   else:
     return []
-     
     
 def getContributors():
   contributors = ""

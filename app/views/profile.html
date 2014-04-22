@@ -1,0 +1,39 @@
+# extends "main.html"
+# block content 
+
+  <header class="ui middle aligned two column raised grid segment"> 
+    <div class="row">
+      <div class="column">
+       <h1> {{profile.title}} </h1>
+      </div>
+      <div class="column">
+        <img class="ui medium image floated right" src="./style/custom/logo.png"/>
+      </div> 
+    </div>
+  </header>
+
+  <div class="ui grid">
+    
+     <section class="ui twelve column wide">
+    
+      <section class="ui stacked segment">
+        {{profile.content}}
+      </section>
+      
+    </section>
+    
+    <section class="ui four column wide">
+    
+      <nav class="ui vertical fluid pointing menu">
+        <div class="menu">
+
+        </div>
+      </nav>
+      
+    </section>
+        
+
+    
+  </div> 
+  	
+# endblock
