@@ -10,5 +10,5 @@ def parse_markdown(md_location):
   return html
 
 def generate_html(content):
-  html = markdown(content, ['fenced_code'], output_format='html5')
+  html = markdown(content, ['fenced_code', 'tables'], output_format='html5')
   return html
