@@ -13,6 +13,10 @@ class BookSummary:
       exit()
       
     self.objectives = parse_markdown (objectivesMd[0])
+    s = objectivesMd[0]
+    s = s[s.find('.')+len('.'):s.rfind('.')]
+    self.title = s[s.find('.')+1 :  ]
+
 
 class Topic:
   def __init__(self):
