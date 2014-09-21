@@ -212,7 +212,7 @@ The appropriate Google Analytics js fragment is inserted into each page. These c
 
 ##0.2 Update
 
-The pdf folder inside a topic, which on the public site will be rendered as links currently looks like this:
+The pdf folder, inside a topic, currently looks like this:
 
 ~~~
 │   ├── pdf
@@ -221,7 +221,7 @@ The pdf folder inside a topic, which on the public site will be rendered as link
 │   │   └── slides-3.pdf
 ~~~
 
-This continues to work as before, however if you provide images + .md files named identically to the slides:
+This continues to work as before, however if you provide images + .md files named identically to the slides e.g:
 
 ~~~
 │   ├── pdf
