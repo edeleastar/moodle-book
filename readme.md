@@ -195,7 +195,7 @@ The full course web can be hosted on any hosting service. On guthub, create repo
 
 ###On Bitbucket:
 
-Bitbucket have a similiar mechanism for hosting static sites:
+Bitbucket has a similar mechanism for hosting static sites:
 
 - [Hosting Static Sites on Bitbucket](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket)
 
@@ -210,6 +210,40 @@ UA-12345678-2
 The appropriate Google Analytics js fragment is inserted into each page. These codes can be created, and the web  traffic monitored, on the [Google Analytics](http://www.google.ie/analytics/) site.
 
 
+##0.2 Update
 
+The pdf folder inside a topic, which on the public site will be rendered as links currently looks like this:
+
+│   ├── pdf
+│   │   ├── slides-1.pdf
+│   │   ├── slides-2.pdf
+│   │   └── slides-3.pdf
+
+This continues to work as before, however if you provide images + .md files named identically to the slides:
+
+│   ├── pdf
+│   │   ├── slides-1.pdf
+│   │   ├── slides-1.png
+│   │   ├── slides-1.md
+│   │   ├── slides-2.pdf
+│   │   ├── slides-2.png
+│   │   ├── slides-2.md
+│   │   ├── slides-3.pdf
+│   │   ├── slides-3.png
+│   │   ├── slides-3.md
+
+Then the link to the slides will be the image, and the content in the .md file will be presented alongside the link. Here is an example if how it may look:
+
+- <http://edeleastar.github.io/web-development/topic03/index.html>
+
+The images will be responsively sized.
+
+For the labs, a default icon will be used, or if there is an image file called 'main.png' in the img folder of the lab then it will be used instead.
+
+It will also search of png, jpg, jpeg or gif files. If none are present then a simple link will be used. If you adopt this scheme, you may wish to remove text from the topic.md file - perhaps just leaving a heading there instead.
+
+Here is an updated example 'source' repository:
+
+- <https://github.com/edeleastar/moodle-book-demo-2>
 
 

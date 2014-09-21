@@ -31,32 +31,45 @@
 
   <section class="ui twelve column wide">
     <section class="ui stacked segment">
-      <div class="ui celled grid">
-        <div class="ten column wide">
-          {{topic.content}}
-        </div>
-
-        <div class="six vertical column wide">
-          <h1> Slides </h1>
-          <div class="ui list">
-            # for pdf in topic.pdfs
-            <a class="item" href="./pdf/{{pdf}}"> {{pdf}} <i class="right triangle icon"> </i> </a>
-            # endfor
+      {{topic.content}}
+      <div class="ui  middle aligned grid">
+        # for topicElement in topic.topicElements     
+          <div class="row">   
+            <div class="ten column wide">
+              {{topicElement.text}}
+            </div>
+            <div class="six vertical column wide">
+              <a href="./pdf/{{topicElement.pdf}}"> 
+                # if topicElement.img:
+                <img class="ui medium image" src="{{topicElement.img}}"> 
+                # else
+                  {{topicElement.pdf}}
+                # endif
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+        # endfor
 
-      # for book in topic.bookList
-      <div class="ui celled grid">
-        <div class="two six column wide">
-          <h1> {{book.title}} </h1>
-          <a class="ui primary fluid button" href="./{{book.folder}}/index.html"> Start </a>
+        # for book in topic.bookList
+          <div class="row">   
+            <div class="two six column wide center aligned">
+              <h1> {{book.title}} </h1>
+              <a  href="./{{book.folder}}/index.html"> 
+                # if book.img:
+                  <img class="ui medium image" src="{{book.img}}" alt="Lab"> 
+                # else
+                  <i class="massive settings icon"></i>
+                #endif  
+              </a>
+            </div>
+            <div class="ten column wide">
+              {{book.objectives}}
+            </div>
         </div>
-        <div class="ten column wide">
-          {{book.objectives}}
-        </div>
+        # endfor
+
+
       </div>
-      # endfor
     </section>
   </section>
   

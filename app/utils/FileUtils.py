@@ -90,8 +90,16 @@ def getAnalyticCode(codeFileName):
 def write(filename, s):       
   with  open(filename,'w') as myfile:
     myfile.write(s)       
-       
-       
-       
-       
+              
+def getImageFile (imgFilePath):
+  if path.isfile(imgFilePath + '.png'):
+    return imgFilePath + '.png'
+  else: 
+    if path.isfile(imgFilePath + '.jpg'):
+      return imgFilePath + '.jpg'  
+    else:       
+     if path.isfile(imgFilePath + '.jpeg'):
+       return imgFilePath + '.jpeg' 
+     if path.isfile(imgFilePath + '.gif'):
+       return imgFilePath + '.gif' 
        

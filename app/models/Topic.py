@@ -1,8 +1,17 @@
 from utils.MarkdownUtils import parse_markdown
 from glob import glob
 from os import getcwd, path
-from utils.FileUtils import getHeadder
+from utils.FileUtils import getHeadder, getImageFile
 from utils.CmdUtils import checkFileExists
+
+class TopicElement:
+  def __init__(self, name):
+    self.pdf  = name + '.pdf'
+    self.img  = getImageFile ('./pdf/' + name)
+    mdFile = "./pdf/" + name + ".md"
+    if (path.isfile(mdFile)):
+      self.text = parse_markdown ("./pdf/" + name + ".md")
+
 
 class BookSummary:
   def __init__(self, name, objectives):
@@ -16,7 +25,7 @@ class BookSummary:
     s = objectivesMd[0]
     s = s[s.find('.')+len('.'):s.rfind('.')]
     self.title = s[s.find('.')+1 :  ]
-
+    self.img = getImageFile ('./' + name + '/img/main')  
 
 class Topic:
   def __init__(self):
@@ -24,10 +33,12 @@ class Topic:
     root, self.folder  = path.split(getcwd())
     self.content  = parse_markdown('topic.md')
     self.title    = getHeadder('topic.md')
-    self.pdfs = []
+    self.topicElements = []
     pdfList   = glob('./pdf/*.pdf')
     for pdf in pdfList:
-      self.pdfs.append(path.basename(pdf))
+      elementName, type = path.splitext(path.basename(pdf))
+      self.topicElements.append(TopicElement(elementName))
+
     self.bookList = []
     books = glob('./book*')  
     for lab in books:
