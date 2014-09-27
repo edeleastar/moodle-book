@@ -1,13 +1,15 @@
 <div class="col-md-8 pull-left">
   <h4> 
-    {{topicElement.title}} 
+    <a href="{{courseUrl}}{{topicElement.fullPdfPath}}"> 
+      {{topicElement.title}} 
+    </a>
   </h4>
   <blockquote>
     {{topicElement.textWithoutHeadder}}
   </blockquote>
   <hr>
 </div>
-<div class="col-md-3 thumbnail">
+<div class="col-md-3 thumbnail hidden-sm hidden-xs">
   <a href="{{courseUrl}}{{topicElement.fullPdfPath}}"> 
     <img class="img-rounded img-responsive" src="{{courseUrl}}{{topicElement.fullImgPath}}">
   </a>

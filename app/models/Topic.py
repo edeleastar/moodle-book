@@ -37,6 +37,8 @@ class BookSummary:
     s = s[s.find('.')+len('.'):s.rfind('.')]
     self.title = s[s.find('.')+1 :  ]
     self.img = getImageFile ('./' + name + '/img/main')  
+    if self.img:
+      self.fullImgPath = topicFolder + self.img[1:]
 
 class Topic:
   def __init__(self, folder):
