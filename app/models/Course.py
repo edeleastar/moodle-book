@@ -1,6 +1,6 @@
 from glob import glob
 from utils.MarkdownUtils import parse_markdown
-from utils.FileUtils import getHeadder, getIgnoreList
+from utils.FileUtils import getHeadder, getCourseUrl, getIgnoreList
 from utils.CmdUtils import checkFileExists
 
 class TopicSummary:
@@ -14,6 +14,7 @@ class Course:
     checkFileExists ('course.md')    
     self.content    = parse_markdown('course.md')
     self.title      = getHeadder('course.md')
+    self.courseUrl  = getCourseUrl()
     ignoreList = getIgnoreList()
     self.topicList  = []
     allTopics  = glob('topic*')

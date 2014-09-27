@@ -52,7 +52,8 @@ def read_data_from_file(file_location):
 def getHeadder(fromFile):
   with open(fromFile, 'r') as f:
     first_line = f.readline() 
-    title = first_line[1:]
+    #title = first_line[1:]
+    title = first_line.strip('#')
   title = title.replace('\n', '')
   return title
     
@@ -61,6 +62,13 @@ def getIgnoreList():
     return [word for line in open('mbignore', 'r') for word in line.split()] 
   else:
     return []
+
+def getCourseUrl():
+  courseUrl = './'
+  if path.exists('courseurl'):   
+     with open('courseurl', 'r') as f:
+       courseUrl= f.readline()    
+  return courseUrl    
     
 def getContributors():
   contributors = ""

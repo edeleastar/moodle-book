@@ -52,7 +52,9 @@ class Publisher:
     bookFolder = os.getcwd()
     topicFolder, bookFolderName  = os.path.split(bookFolder)
     os.chdir(topicFolder)
-    topic = Topic()
+    fullPath = os.getcwd() 
+    path, folder = os.path.split(fullPath)
+    topic = Topic(folder)
     os.chdir(bookFolder)
     self.publishLabInTopic(topic, book) 
         
@@ -73,11 +75,21 @@ class Publisher:
     course = Course()
     os.chdir(topicFolder)
     self.publishTopicInCourse(course, topic)
-    
+
+
+  def publishMoodleLabels(self, course, topic):
+    for topicElement in topic.topicElements:
+      self.publishPage('moodle-label.html', self.resolveTopicPath(topic) +'/moodle-labels/'+ topicElement.name + '.html', dict(courseUrl=course.courseUrl, topicElement=topicElement)) 
+    for book in topic.bookList:
+      self.publishPage('moodle-label-book.html', self.resolveTopicPath(topic) +'/moodle-labels/'+ book.title + '.html', dict(courseUrl=course.courseUrl, book=book)) 
+
   def publishTopicInCourse(self, course, topic):
     copyStyle(self.resolveTopicPath(topic) + '/style')
     copyFolder ('./pdf', self.resolveTopicPath(topic) + '/pdf')
     self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic)) 
+    #self.publishPage('topic-moodle.html', self.resolveTopicPath(topic) +'/index-moodle.html', dict(courseUrl=course.courseUrl, title=topic.title, topic=topic)) 
+    self.publishMoodleLabels(course, topic)
+
     topicDir = os.getcwd() 
     for book in topic.bookList:
       os.chdir(topicDir + '/' + book.folder)
@@ -92,7 +104,7 @@ class Publisher:
     for topic in course.topicList:
       print ('Writing ' + topic.folder)
       os.chdir(courseDir + '/' + topic.folder)
-      topic = Topic()
+      topic = Topic(topic.folder)
       self.publishTopicInCourse(course, topic)
 
   def publishProfile(self, profile):

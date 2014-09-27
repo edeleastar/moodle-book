@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import os
+
 if __name__ == "__main__":
   from os              import path
   from controllers.App import App
@@ -20,8 +22,10 @@ if __name__ == "__main__":
       app.publishCourse(course)
     else: 
       if path.exists('topic.md'):
-        print ('Publishing topic + contained books')     
-        topic = Topic()
+        print ('Publishing topic + contained books')    
+        fullPath = os.getcwd() 
+        path, folder = os.path.split(fullPath)
+        topic = Topic(folder)
         app.publishTopic(topic)
       else: 
         print ('Publishing single book')   

@@ -250,4 +250,7 @@ Here is an updated example 'source' repository:
 
 - <https://github.com/edeleastar/moodle-book-demo-2>
 
+##0.3 Update
+
+For use with moodle, generate in 'moodle-labels' individual HTML fragements that can he directly loaded into moodle labels. These fragments are styled with bootstrap 3 conventions.
 

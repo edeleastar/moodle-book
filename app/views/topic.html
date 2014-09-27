@@ -36,7 +36,12 @@
         # for topicElement in topic.topicElements     
           <div class="row">   
             <div class="ten column wide">
-              {{topicElement.text}}
+              <h4 class="ui center aligned header">
+               {{topicElement.title}}
+              </h4>
+              <div class="ui raised segment">
+                {{topicElement.textWithoutHeadder}}
+              </div>
             </div>
             <div class="six vertical column wide">
               <a href="./pdf/{{topicElement.pdf}}"> 
@@ -52,8 +57,15 @@
 
         # for book in topic.bookList
           <div class="row">   
-            <div class="two six column wide center aligned">
-              <h1> {{book.title}} </h1>
+            <div class="ten column wide">
+             <h4 class="ui center aligned header">
+               Lab: {{book.title}} 
+             </h4>
+              <div class="ui raised segment">
+                {{book.objectivesWithoutHeadder}}
+              </div>
+            </div>
+            <div class="six column wide center aligned">
               <a  href="./{{book.folder}}/index.html"> 
                 # if book.img:
                   <img class="ui medium image" src="{{book.img}}" alt="Lab"> 
@@ -62,13 +74,8 @@
                 #endif  
               </a>
             </div>
-            <div class="ten column wide">
-              {{book.objectives}}
-            </div>
         </div>
         # endfor
-
-
       </div>
     </section>
   </section>
