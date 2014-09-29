@@ -1,6 +1,6 @@
 import os
 
-version = '0.3'
+version = '0.4'
 
 contributors    = ''
 verbose         = False

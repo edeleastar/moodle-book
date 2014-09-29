@@ -252,5 +252,14 @@ Here is an updated example 'source' repository:
 
 ##0.3 Update
 
-For use with moodle, generate in 'moodle-labels' individual HTML fragements that can he directly loaded into moodle labels. These fragments are styled with bootstrap 3 conventions.
+For use with moodle, generate in 'moodle-labels' individual HTML fragments that can he directly loaded into moodle labels. These fragments are styled with bootstrap 3 conventions.
+
+##0.4 Update
+
+Switch to 'solarized_light' instead of 'school_book' for code segments.
+
+New switch: '-e' (for 'externa'), which will generate a version of the static web site that no longer requires multiple style directories. These directories contained copies of semantic ui CSS framework, highlight.js, and jquery. With '-e' enabled, all pages will now contain links to CDN hosted version of same. This option is recommended for hosting on external sites like gighub's 'gh-pages' service
+
+However, if '-e' is enabled and you wish to browse the course materials locally, you will need a internet connection for the pages to render correctly.
+
 
