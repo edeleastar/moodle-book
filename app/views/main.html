@@ -7,19 +7,21 @@
      <title> {{ title }} </title>
    
      <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-     <link rel="stylesheet" href="./style/semantic/css/semantic.min.css" type="text/css">  
-     <link rel="stylesheet" href="./style/custom/main.css" type="text/css"> 
-   
-     <script src="./style/custom/jquery-2.1.0.min.js"></script> 
-     <script src="./style/custom/jquery.address-1.6.min.js"></script>
-     <script src="./style/semantic/javascript/semantic.min.js"></script>
-   
-     <link rel="stylesheet" href="./style/highlight/school_book.css">
-     <script src="./style/highlight/highlight.pack.js"></script> 
-     <script>hljs.initHighlightingOnLoad();</script>
-   
-     <script src="./style/custom/common.js"> </script> 
-     <script src="./style/custom/main.js"> </script> 
+
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.min.css">
+     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/javascript/semantic.min.js"></script>
+ 
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" /> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style>
+      #include 'main.css'
+    </style>
+
   </head>
   <body>
     # block content
@@ -40,6 +42,13 @@
    #if tracking
     #include 'tracking.html'
    #endif  
-   
+
+
+  <script>
+    $(document).ready(function()
+    {  
+      $('.tab-menu.menu .item').tab();
+    });
+  </script>   
   </body>
  </html>
