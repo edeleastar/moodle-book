@@ -16,15 +16,16 @@ def copyFolder (source, dest):
     shutil.copytree (source, dest)  
      
 def copyStyle (destinationPath): 
-  if settings.verbose:
-    print ('writing ' + destinationPath + '')
-  #ensure_dir(destinationPath)
-  #pathname = os.path.dirname(sys.argv[0])        
-  #absPath  = os.path.abspath(pathname)
-  #(parent, app) = os.path.split(absPath)
-  #sourcePath = parent
-  #shutil.rmtree (destinationPath)
-  #shutil.copytree (sourcePath + '/public/style',  destinationPath)
+  if settings.external != True:
+    if settings.verbose:
+      print ('writing ' + destinationPath + '')
+    ensure_dir(destinationPath)
+    pathname = os.path.dirname(sys.argv[0])        
+    absPath  = os.path.abspath(pathname)
+    (parent, app) = os.path.split(absPath)
+    sourcePath = parent
+    shutil.rmtree (destinationPath)
+    shutil.copytree (sourcePath + '/public/style',  destinationPath)
   
 def generatePage (fileName, sections):
   if (os.path.isfile(fileName)):
