@@ -2,19 +2,25 @@
  <html>
    <head>
     <title> : {{ title }} </title>
-    <link rel="stylesheet" href="//edeleastar.github.io/assets/style/semantic/css/semantic.min.css" type="text/css">  
-    <link rel="stylesheet" href="//edeleastar.github.io/assets/style/custom/bookmain.css" type="text/css"> 
-    <link rel="stylesheet" href="//edeleastar.github.io/assets/style/highlight/school_book.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/semantic-ui/0.19.3/css/semantic.min.css" type="text/css">  
+    <style>
+      #include 'bookmain.css'
+    </style>
+
   </head>
    <body>
     # block content
     # endblock
   
-    <script src="//edeleastar.github.io/assets/style/highlight/highlight.pack.js"></script> 
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" /> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="//edeleastar.github.io/assets/style/custom/jquery-2.1.0.min.js"></script> 
-    <script src="//edeleastar.github.io/assets/style/custom/common.js"> </script> 
-    <script src="//edeleastar.github.io/assets/style/custom/bookmain.js"> </script> 
+
+    <script>
+      #include 'lab-style.js'
+    </script>
     
     #if tracking
       #include 'tracking.html'

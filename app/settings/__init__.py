@@ -6,6 +6,7 @@ contributors    = ''
 verbose         = False
 pagetitles      = False
 bootstrap       = False
+external        = False
 outputfolder    = './public'
 viewsPath       = ""
 templateLoader  = None  

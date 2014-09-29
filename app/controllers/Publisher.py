@@ -37,6 +37,7 @@ class Publisher:
     content.update ({'contributors':getContributors()})
     tracking = getAnalyticCode('ga')
     content.update({'tracking':tracking})
+    content.update({'external':settings.external})
     writePage(htmlFile, template.render(content))
  
   def publishBook(self, book):
