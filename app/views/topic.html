@@ -47,25 +47,14 @@
         # endfor
 
         # for book in topic.bookList
-          <div class="row">   
-            <div class="ten column wide">
-             <h4 class="ui center aligned header">
-               Lab: {{book.title}} 
-             </h4>
-              <div class="ui raised segment">
-                {{book.objectivesWithoutHeadder}}
-              </div>
-            </div>
-            <div class="six column wide center aligned">
-              <a  href="./{{book.folder}}/index.html"> 
-                # if book.img:
-                  <img class="ui medium image" src="{{book.img}}" alt="Lab"> 
-                # else
-                  <i class="massive settings icon"></i>
-                #endif  
-              </a>
-            </div>
-        </div>
+          <div class="row">
+            # set toggle = not toggle
+            # if toggle
+              #include "lab-element-left.html"
+            # else
+              #include "lab-element-right.html"
+            # endif
+          </div>
         # endfor
       </div>
     </section>

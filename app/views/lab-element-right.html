@@ -1,12 +1,4 @@
-  <div class="ten column wide">
-   <h4 class="ui center aligned header">
-     Lab: {{book.title}}
-   </h4>
-    <div class="ui raised segment">
-      {{book.objectivesWithoutHeadder}}
-    </div>
-  </div>
-  <div class="six column wide center aligned">
+   <div class="six column wide center aligned">
     <a  href="./{{book.folder}}/index.html">
       # if book.img:
         <img class="ui medium image" src="{{book.img}}" alt="Lab">
@@ -14,4 +6,12 @@
         <i class="massive settings icon"></i>
       #endif
     </a>
+  </div>
+  <div class="ten column wide">
+   <h4 class="ui center aligned header">
+     Lab: {{book.title}}
+   </h4>
+    <div class="ui raised segment">
+      {{book.objectivesWithoutHeadder}}
+    </div>
   </div>
