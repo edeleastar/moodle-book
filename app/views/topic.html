@@ -34,25 +34,15 @@
     <section class="ui stacked segment">
       {{topic.content}}
       <div class="ui  middle aligned grid">
-        # for topicElement in topic.topicElements     
-          <div class="row">   
-            <div class="ten column wide">
-              <h4 class="ui center aligned header">
-               {{topicElement.title}}
-              </h4>
-              <div class="ui raised segment">
-                {{topicElement.textWithoutHeadder}}
-              </div>
-            </div>
-            <div class="six vertical column wide">
-              <a href="./pdf/{{topicElement.pdf}}"> 
-                # if topicElement.img:
-                <img class="ui medium image" src="{{topicElement.img}}"> 
-                # else
-                  {{topicElement.pdf}}
-                # endif
-              </a>
-            </div>
+        # set toggle = false
+        # for topicElement in topic.topicElements
+          <div class="row">
+            # set toggle = not toggle
+            # if toggle
+              #include "topic-element-left.html"
+            # else
+              #include "topic-element-right.html"
+            # endif
           </div>
         # endfor
 
