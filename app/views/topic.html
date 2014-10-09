@@ -30,11 +30,11 @@
     </nav>
   </section>
 
+# set toggle = false
   <section class="ui twelve column wide">
     <section class="ui stacked segment">
       {{topic.content}}
       <div class="ui  middle aligned grid">
-        # set toggle = false
         # for topicElement in topic.topicElements
           <div class="row">
             # set toggle = not toggle
@@ -48,12 +48,12 @@
 
         # for book in topic.bookList
           <div class="row">
-            # set toggle = not toggle
             # if toggle
               #include "lab-element-left.html"
             # else
               #include "lab-element-right.html"
             # endif
+            # set toggle = not toggle
           </div>
         # endfor
       </div>
