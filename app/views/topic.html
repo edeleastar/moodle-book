@@ -1,22 +1,11 @@
 # extends "main.html"
 # block content
 
-<header class="ui middle aligned two column raised grid segment">
-  <div class="row">
-    <div class="column">
-      <h1><a href="../index.html"> {{course.title}} </a></h1>
-      <h3> {{course.programme}}</h3>
-    </div>
-    <div class="column">
-      <img class="ui image floated right" src="http://www.wit.ie/graphics/top_logo_transparent.png">
-      <img class="ui image floated right" src="http://www.wit.ie/graphics/h1_text.png">
-    </div>
-  </div>
-</header>
+<section class="ui page stackable grid">
 
-<section class="ui grid">
-  
-  <section class="ui four column wide">
+  # include "header.html"
+
+  <section class="ui four wide column">
     <nav class="ui vertical fluid pointing menu">
       <div class="menu">
         # for currentTopic in course.topicList
@@ -30,11 +19,35 @@
     </nav>
   </section>
 
+# if external
+
+    <section class="ui twelve wide column segment">
+      {{topic.content}}
+      <div class="row">
+        <div class="ui cards">
+          # for topicElement in topic.topicElements
+            # include "slide-card.html"
+          # endfor
+        </div>
+      </div>
+      <div class="row">
+        <h1> Labs </h1>
+        <div class="ui cards">
+          # for book in topic.bookList
+            # include "lab-card.html"
+          # endfor
+        </div>
+      </div>
+    </section>
+  </div>
+
+# else
+
 # set toggle = false
-  <section class="ui twelve column wide">
+  <section class="ui twelve wide column">
     <section class="ui stacked segment">
       {{topic.content}}
-      <div class="ui  middle aligned grid">
+      <div class="ui middle aligned grid">
         # for topicElement in topic.topicElements
           <div class="row">
             # set toggle = not toggle
@@ -59,6 +72,8 @@
       </div>
     </section>
   </section>
+
+# endif
   
 </section>
 # endblock 

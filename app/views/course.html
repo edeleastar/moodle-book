@@ -1,20 +1,10 @@
 # extends "main.html"
 # block content 
 
-  <header class="ui middle aligned two column raised grid segment"> 
-    <div class="row">
-      <div class="column">
-       <h1> {{course.title}} </h1>
-      </div>
-      <div class="column">
-        <img class="ui image floated right" src="http://www.wit.ie/graphics/top_logo_transparent.png">
-        <img class="ui image floated right" src="http://www.wit.ie/graphics/h1_text.png">
-      </div> 
-    </div>
-  </header>
+  <div class="ui page stackable grid">
+    # include "header.html"
 
-  <div class="ui grid">
-    <section class="ui four column wide">
+    <section class="ui four wide column">
     
       <nav class="ui vertical fluid pointing menu">
         <div class="menu">
@@ -26,7 +16,7 @@
       
     </section>
         
-    <section class="ui twelve column wide">
+    <section class="ui twelve wide column">
     
       <section class="ui stacked segment">
         {{course.content}}
