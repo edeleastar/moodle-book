@@ -2,7 +2,20 @@
 # block content 
 
   <div id="container" class="ui stackable grid">
-    # include "header.html"
+
+
+  <header class="ui middle aligned grid section">
+    <div class="ten wide column">
+      <h1>{{course.title}}</h1>
+      <h3> {{course.programme}}</h3>
+    </div>
+    <div class="four wide column">
+       <img class="ui image" src="http://www.wit.ie/graphics/h1_text.png">
+    </div>
+    <div class="two wide column">
+      <img class="ui image" src="http://www.wit.ie/graphics/top_logo_transparent.png">
+    </div>
+  </header>
 
     <section class="ui four wide column">
     
@@ -10,7 +23,11 @@
         <div class="menu">
           # for topic in course.topicList 
             <a class="item" href=" ./{{topic.folder}}/index.html">  {{topic.title}} </a>
-          # endfor 
+          # endfor
+        # if wall
+          <a class="item" href=" topicwall.html"> All Topics </a>
+          <a class="item" href=" labwall.html"> All Labs </a>
+        #endif
         </div>
       </nav>
       

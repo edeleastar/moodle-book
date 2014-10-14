@@ -38,6 +38,8 @@ class Publisher:
     tracking = getAnalyticCode('ga')
     content.update({'tracking':tracking})
     content.update({'external':settings.external})
+    content.update({'wall':settings.wall})
+
     writePage(htmlFile, template.render(content))
  
   def publishBook(self, book):
@@ -110,7 +112,9 @@ class Publisher:
       completeTopics.append(topic)
       self.publishTopicInCourse(course, topic)
     os.chdir(courseDir);
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/wall.html', dict(topics=completeTopics))
+    if settings.wall:
+      self.publishPage('topicwall.html', self.resolveCoursePath(course) +'/topicwall.html', dict(course=course, topics=completeTopics))
+      self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics))
 
 
   def publishProfile(self, profile):

@@ -13,7 +13,7 @@ class App:
     parser.add_argument("-outputfolder", help="output folder for generated files")
     parser.add_argument("-bootstrap",    help="use bootstrap theme", action="store_true")
     parser.add_argument("-external",     help="use external semantic ui and highlight.js resources", action="store_true")
-        
+    parser.add_argument("-wall",         help="generate a topic and lab wall pages", action="store_true")
     args = parser.parse_args()
    
     settings.viewsPath      = path + '/views'
@@ -21,6 +21,7 @@ class App:
     settings.pagetitles     = args.pagetitles
     settings.bootstrap      = args.bootstrap
     settings.external       = args.external
+    settings.wall           = args.wall
     
     if args.outputfolder:
       settings.outputfolder   = args.outputfolder

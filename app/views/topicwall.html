@@ -1,0 +1,41 @@
+# extends "main.html"
+# block content
+
+<section id="container">
+
+    <header class="ui middle aligned grid section">
+    <div class="ten wide column">
+      <h1><a href="index.html"> {{course.title}} </a></h1>
+      <h3> {{course.programme}}</h3>
+    </div>
+    <div class="four wide column">
+       <img class="ui image" src="http://www.wit.ie/graphics/h1_text.png">
+    </div>
+    <div class="two wide column">
+      <img class="ui image" src="http://www.wit.ie/graphics/top_logo_transparent.png">
+    </div>
+  </header>
+
+  <section class="ui segment">
+    # for topic in topics
+      {{topic.content}}
+       <div class="ui cards">
+         # for topicElement in topic.topicElements
+         <div  class="ui card">
+           <div class="cover">
+             <div style="background-image: url('{{topicElement.fullImgPath}}');" class="image-thumbnail"> </div>
+           </div>
+           <div class="content">
+             <a  href="{{topic.topicFolder}}/pdf/{{topicElement.pdf}}" class="header">{{topicElement.title}}</a>
+           </div>
+           <div class="extra content">
+             {{topicElement.textWithoutHeadder}}
+           </div>
+         </div>
+       # endfor
+       </div>
+    # endfor
+  </section>
+</section>
+
+# endblock
