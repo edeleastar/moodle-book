@@ -1,0 +1,29 @@
+# extends "main.html"
+# block content
+
+<section class="ui segment">
+    # for topic in topics
+        <div class="ui cards">
+
+
+          # for topicElement in topic.topicElements
+
+          <div  class="ui card">
+            <div class="cover">
+              <div style="background-image: url('{{topicElement.fullImgPath}}');" class="image-thumbnail"> </div>
+            </div>
+            <div class="content">
+              <a  href="{{topic.topicFolder}}/pdf/{{topicElement.pdf}}" class="header">{{topicElement.title}}</a>
+            </div>
+            <div class="extra content">
+              {{topicElement.textWithoutHeadder}}
+            </div>
+          </div>
+
+          # endfor
+       </div>
+
+    # endfor
+
+</section>
+# endblock

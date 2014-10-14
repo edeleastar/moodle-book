@@ -102,11 +102,16 @@ class Publisher:
     copyStyle(self.resolveCoursePath(course) + '/style')
     self.publishPage('course.html', self.resolveCoursePath(course) +'/index.html', dict(course=course))
     courseDir = os.getcwd()
+    completeTopics = []
     for topic in course.topicList:
       print ('Writing ' + topic.folder)
       os.chdir(courseDir + '/' + topic.folder)
       topic = Topic(topic.folder)
+      completeTopics.append(topic)
       self.publishTopicInCourse(course, topic)
+    os.chdir(courseDir);
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/wall.html', dict(topics=completeTopics))
+
 
   def publishProfile(self, profile):
     copyStyle(self.resolveCoursePath(profile) + '/style')

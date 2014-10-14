@@ -1,8 +1,7 @@
 from glob import glob
 from ChapterMd import ChapterMd
-from ChapterQuiz import ChapterQuiz
 from os import walk, getcwd, path
-import sys;
+import sys
 
 class Book:
   def __init__(self):
@@ -11,7 +10,7 @@ class Book:
     self.parseMarkdown()
     folders = [x[0] for x in walk('.')]
     folders.pop(0)
-    self.directories = [ folder for folder in folders if not (folder.startswith('./public'))  ]
+    self.directories = [ folder for folder in folders if not (folder.startswith('./public'))]
     root, self.folderName  = path.split(getcwd())
     self.title = self.chapters[0].shortTitle
     root, self.topic = path.split(root)

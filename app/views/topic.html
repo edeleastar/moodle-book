@@ -1,11 +1,11 @@
 # extends "main.html"
 # block content
 
-<section class="ui page stackable grid">
+<section id="container" class="ui stackable grid">
 
   # include "header.html"
 
-  <section class="ui four wide column">
+  <section id="menu" id="topic" class="ui four wide column">
     <nav class="ui vertical fluid pointing menu">
       <div class="menu">
         # for currentTopic in course.topicList
@@ -19,24 +19,22 @@
     </nav>
   </section>
 
+
+
 # if external
 
-    <section class="ui twelve wide column segment">
+    <section id="topic" class="ui doubling twelve wide column segment">
       {{topic.content}}
-      <div class="row">
-        <div class="ui cards">
-          # for topicElement in topic.topicElements
-            # include "slide-card.html"
-          # endfor
-        </div>
+      <div class="ui cards">
+        # for topicElement in topic.topicElements
+          # include "slide-card.html"
+        # endfor
       </div>
-      <div class="row">
-        <h1> Labs </h1>
-        <div class="ui cards">
-          # for book in topic.bookList
-            # include "lab-card.html"
-          # endfor
-        </div>
+      <h1> Labs </h1>
+      <div class="ui cards">
+        # for book in topic.bookList
+          # include "lab-card.html"
+        # endfor
       </div>
     </section>
   </div>
