@@ -1,4 +1,4 @@
-  <div class="six vertical column wide">
+  <div class="six wide center aligned column">
     <a href="./pdf/{{topicElement.pdf}}">
       # if topicElement.img:
       <img class="ui medium image" src="{{topicElement.img}}">
@@ -7,9 +7,9 @@
       # endif
     </a>
   </div>
-  <div class="ten column wide">
+  <div class="ten wide column">
     <h4 class="ui left aligned header">
-     {{topicElement.title}}
+     <a href="./pdf/{{topicElement.pdf}}"> {{topicElement.title}} </a>
     </h4>
     <div class="ui raised segment">
       {{topicElement.textWithoutHeadder}}

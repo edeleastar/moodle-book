@@ -1,4 +1,4 @@
-   <div class="six column wide center aligned">
+   <div class="six wide center aligned column">
     <a  href="./{{book.folder}}/index.html">
       # if book.img:
         <img class="ui medium image" src="{{book.img}}" alt="Lab">
@@ -7,9 +7,11 @@
       #endif
     </a>
   </div>
-  <div class="ten column wide">
+  <div class="ten wide column">
    <h4 class="ui left aligned header">
-     Lab: {{book.title}}
+     <a  href="./{{book.folder}}/index.html">
+       Lab: {{book.title}}
+     </a>
    </h4>
     <div class="ui raised segment">
       {{book.objectivesWithoutHeadder}}
