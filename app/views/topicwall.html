@@ -14,9 +14,8 @@
   </header>
 
   <section class="ui segment">
-    # for topic in topics
-      {{topic.content}}
-       <div class="ui cards">
+     <div class="ui cards">
+       # for topic in topics
          # for topicElement in topic.topicElements
          <div  class="ui card">
            <div class="cover">
@@ -24,14 +23,14 @@
            </div>
            <div class="content">
              <a  href="{{topic.topicFolder}}/pdf/{{topicElement.pdf}}" class="header">{{topicElement.title}}</a>
-           </div>
-           <div class="extra content">
-             {{topicElement.textWithoutHeadder}}
+             <div class="description">
+               {{topicElement.textWithoutHeadder}}
+             </div>
            </div>
          </div>
+         # endfor
        # endfor
-       </div>
-    # endfor
+     </div>
   </section>
 </section>
 
