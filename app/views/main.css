@@ -96,6 +96,8 @@ header h3
     background-position: center;
 }
 
-
+#container .card .description {
+  min-height: 200px;
+}
 
 {% endraw %}
