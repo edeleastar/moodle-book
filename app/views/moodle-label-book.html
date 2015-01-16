@@ -1,6 +1,8 @@
 <div class="col-md-8 pull-left">
-  <h4> 
-     {{book.title}}  <span class="badge">Lab</span>
+  <h4>
+     <a href="{{courseUrl}}{{book.topicFolder}}/{{book.folder}}/index.html" target="_blank">
+       {{book.title}}  <span class="badge">Lab</span>
+     </a>
   </h4>
   <blockquote>
     {{book.objectivesWithoutHeadder}}
@@ -8,7 +10,7 @@
 
 </div>
 <div class="col-md-3 thumbnail hidden-sm hidden-xs">
-  <!-- <a href="{{courseUrl}}{{book.topicFolder}}/{{book.folder}}/index.html"> -->
+  <a href="{{courseUrl}}{{book.topicFolder}}/{{book.folder}}/index.html" target="_blank">
     <img class="img-rounded img-responsive" src="{{courseUrl}}{{book.fullImgPath}}">
-  <!-- </a> -->
+  </a>
 </div>

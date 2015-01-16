@@ -2,7 +2,7 @@
 # block content 
   
   <nav class="ui fixed top pointing borderless inverted menu">
-    <header class="header item"> <a href="../index.html">{{topic.title}}</a></header>
+    <header class="header item"> {{topic.title}} </header>
     <div class="right tab-menu menu">
       # for chapter in book.chapters
           <a class="item" data-tab="{{chapter.shortTitle}}"> {{chapter.shortTitle}} </a>
