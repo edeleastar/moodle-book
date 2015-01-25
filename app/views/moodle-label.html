@@ -1,16 +1,18 @@
-<div class="col-md-8 pull-left">
-  <h4> 
-    <a href="{{courseUrl}}{{topicElement.fullPdfPath}}"> 
-      {{topicElement.title}} 
-    </a>
-  </h4>
-  <blockquote>
-    {{topicElement.textWithoutHeadder}}
-  </blockquote>
-  <hr>
-</div>
-<div class="col-md-3 thumbnail hidden-sm hidden-xs">
-  <a href="{{courseUrl}}{{topicElement.fullPdfPath}}"> 
-    <img class="img-rounded img-responsive" src="{{courseUrl}}{{topicElement.fullImgPath}}">
-  </a>
+<div class="col-md-6">
+  <div class=" panel panel-default">
+    <div class="panel-heading">
+      <h4 class="text-center">
+        <a href="{{courseUrl}}{{topicElement.fullPdfPath}}">
+          {{topicElement.title}}
+        </a>
+      </h4>
+    </div>
+    <img src="{{courseUrl}}{{topicElement.fullImgPath}}" class="img-responsive center-block" width="300">
+    <div class="panel-body">
+      <hr>
+      <blockquote>
+        {{topicElement.textWithoutHeadder}}
+      </blockquote>
+    </div>
+  </div>
 </div>

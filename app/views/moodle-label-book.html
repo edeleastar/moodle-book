@@ -1,16 +1,18 @@
-<div class="col-md-8 pull-left">
-  <h4>
-     <a href="{{courseUrl}}{{book.topicFolder}}/{{book.folder}}/index.html" target="_blank">
-       {{book.title}}  <span class="badge">Lab</span>
-     </a>
-  </h4>
-  <blockquote>
-    {{book.objectivesWithoutHeadder}}
-  </blockquote>
-
-</div>
-<div class="col-md-3 thumbnail hidden-sm hidden-xs">
-  <a href="{{courseUrl}}{{book.topicFolder}}/{{book.folder}}/index.html" target="_blank">
-    <img class="img-rounded img-responsive" src="{{courseUrl}}{{book.fullImgPath}}">
-  </a>
+<div class="col-md-6">
+  <div class=" panel panel-default">
+    <div class="panel-heading">
+      <h4 class="text-center">
+        <a href="{{courseUrl}}{{book.topicFolder}}/{{book.folder}}/index.html" target="_blank">
+         {{book.title}}  <span class="badge">Lab</span>
+        </a>
+      </h4>
+    </div>
+    <img src="{{courseUrl}}{{book.fullImgPath}}" class="img-responsive center-block" width="300">
+    <div class="panel-body">
+      <hr>
+      <blockquote>
+        {{book.objectivesWithoutHeadder}}
+      </blockquote>
+    </div>
+  </div>
 </div>
