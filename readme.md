@@ -250,6 +250,12 @@ Here is an updated example 'source' repository:
 
 - <https://github.com/edeleastar/moodle-book-demo-2>
 
+And this is a published version of the same course:
+
+- <http://edeleastar.github.io/moodle-book-demo-2-public>
+
+A published 
+
 ##0.3 Update
 
 For use with moodle, generate in 'moodle-labels' individual HTML fragments that can he directly loaded into moodle labels. These fragments are styled with bootstrap 3 conventions.
@@ -258,8 +264,14 @@ For use with moodle, generate in 'moodle-labels' individual HTML fragments that 
 
 Switch to 'solarized_light' instead of 'school_book' for code segments.
 
-New switch: '-e' (for 'externa'), which will generate a version of the static web site that no longer requires multiple style directories. These directories contained copies of semantic ui CSS framework, highlight.js, and jquery. With '-e' enabled, all pages will now contain links to CDN hosted version of same. This option is recommended for hosting on external sites like gighub's 'gh-pages' service
+New switch: '-e' (for 'external'), which will generate a version of the static web site that no longer requires multiple style directories. These directories contained copies of semantic ui CSS framework, highlight.js, and jquery. With '-e' enabled, all pages will now contain links to CDN hosted version of same. This option is recommended for hosting on external sites like gighub's 'gh-pages' service
 
-However, if '-e' is enabled and you wish to browse the course materials locally, you will need a internet connection for the pages to render correctly.
+However, if '-e' is enabled and you wish to browse the course materials locally, you will need a Internet connection for the pages to render correctly.
+
+New switch: -w (for 'wall'). This will generate a summary 'wall' for all lecture and lab cards. For example here:
+
+- <http://edeleastar.github.io/moodle-book-demo-2-public>
+
+
 
 
