@@ -1,5 +1,5 @@
 from glob import glob
-from ChapterMd import ChapterMd
+from Chapter import Chapter
 from os import walk, getcwd, path
 import sys
 
@@ -21,4 +21,4 @@ class Book:
       print ('Cannot find any markdown files - you must run this command from a course, topic or book folder')
       sys.exit()
     for mdFile in self.mdFiles:
-      self.chapters.append (ChapterMd(mdFile))  
+      self.chapters.append (Chapter(mdFile))

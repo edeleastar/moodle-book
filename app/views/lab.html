@@ -1,25 +1,51 @@
-# extends "main.html" 
-# block content 
-  
-  <nav class="ui fixed top pointing borderless inverted menu">
-    <header class="header item"> {{topic.title}} </header>
-    <div class="right tab-menu menu">
-      # for chapter in book.chapters
-          <a class="item" data-tab="{{chapter.shortTitle}}"> {{chapter.shortTitle}} </a>
+# extends "main.html"
+# block content
+
+<style>
+# include "lab.css"
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <a class="navbar-brand" href="../index.html"><span>  {{topic.title}}  </span></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#{{book.chapters[0].shortTitle}}" data-toggle="tab"> {{book.chapters[0].shortTitle}} </a> </li>
+        # for chapter in book.chapters[1:]
+          <li><a href= "#{{chapter.shortTitle}}" data-toggle="tab"> {{chapter.shortTitle}} </a> </li>
+        # endfor
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="section">
+  <div class="container">
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="{{book.chapters[0].shortTitle}}">
+        {{ book.chapters[0].content }}
+	    </div>
+
+      # for chapter in book.chapters[1:]
+        <div class="tab-pane fade" id="{{chapter.shortTitle}}">
+          {{ chapter.content }}
+	      </div>
       # endfor
     </div>
-  </nav>
 
-  <br>
-
-  # for chapter in book.chapters
-	  <section data-tab="{{chapter.shortTitle}}" class="ui tab stacked moodle-book segment">
-	     {{ chapter.content }}
-	  </section>
-  # endfor
+  </div>
+</div>
 
 <script>
-  #include 'lab-style.js'
-</script>
+  $(document).ready(function()
+  {
+    $("img").addClass ("img-responsive");
+  })
+ </script>
 # endblock 
-

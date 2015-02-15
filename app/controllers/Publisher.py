@@ -1,5 +1,5 @@
 from utils.FileUtils  import copyFolder, copyStyle
-from utils.FileUtils import writePage, getContributors, getAnalyticCode
+from utils.FileUtils import writePage, getContributors, getAnalyticCode, chunks
 import shutil
 import settings 
 import os
@@ -20,9 +20,6 @@ class Publisher:
   
   def resolveCoursePath(self, topic):
     return "./" + settings.outputfolder
-
-  def resolveProfilePath(self, topic):
-    return "./" + settings.outputfolder
    
   def remove(self, path):
     if os.path.exists(path):
@@ -41,17 +38,9 @@ class Publisher:
     content.update({'wall':settings.wall})
 
     writePage(htmlFile, template.render(content))
- 
-  def publishBook(self, book):
-    print ('  -->' + book.title)
-    self.remove (self.resolveBookPath(book))
-    self.copyDirectories(book, self.resolveBookPath(book))
-    for chapter in book.chapters:
-      self.publishPage('chapter.html', self.resolveBookPath(book) + '/' + chapter.file + '.html',  dict(title=chapter.title, content=chapter.contentWithoutHeadder))  
-    shutil.make_archive(self.resolveBookPath(book), format="zip", root_dir = self.resolveBookPath(book))   
-    shutil.rmtree(self.resolveBookPath(book));
 
   def publishLab(self,  book):
+    print ('  -->' + book.title)
     bookFolder = os.getcwd()
     topicFolder, bookFolderName  = os.path.split(bookFolder)
     os.chdir(topicFolder)
@@ -62,13 +51,11 @@ class Publisher:
     self.publishLabInTopic(topic, book) 
         
   def publishLabInTopic(self, topic, book):
+    print ('  -->' + book.title)
     self.remove (self.resolveSitePath(book))
     self.copyDirectories(book, self.resolveSitePath(book))
     copyStyle(self.resolveSitePath(book) + '/style')
-    if settings.bootstrap:
-      self.publishPage('labbootstrap.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
-    else:  
-      self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
+    self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
     shutil.make_archive(self.resolveSitePath(book) + '-archive', format="zip", root_dir= self.resolveSitePath(book))   
     
   def publishTopic(self, topic):
@@ -79,25 +66,17 @@ class Publisher:
     os.chdir(topicFolder)
     self.publishTopicInCourse(course, topic)
 
-
-  def publishMoodleLabels(self, course, topic):
-    for topicElement in topic.topicElements:
-      self.publishPage('moodle-label.html', self.resolveTopicPath(topic) +'/moodle-labels/'+ topicElement.name + '.html', dict(courseUrl=course.courseUrl, topicElement=topicElement)) 
-    for book in topic.bookList:
-      self.publishPage('moodle-label-book.html', self.resolveTopicPath(topic) +'/moodle-labels/'+ book.title + '.html', dict(courseUrl=course.courseUrl, book=book)) 
-
   def publishTopicInCourse(self, course, topic):
     copyStyle(self.resolveTopicPath(topic) + '/style')
     copyFolder ('./pdf', self.resolveTopicPath(topic) + '/pdf')
-    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic)) 
-    #self.publishPage('topic-moodle.html', self.resolveTopicPath(topic) +'/index-moodle.html', dict(courseUrl=course.courseUrl, title=topic.title, topic=topic)) 
-    self.publishMoodleLabels(course, topic)
+    labs = chunks(topic.bookList, 3)
+    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic, labs=labs))
 
     topicDir = os.getcwd() 
     for book in topic.bookList:
       os.chdir(topicDir + '/' + book.folder)
       book = Book()
-      self.publishBook(book)
+      #self.publishBook(book)
       self.publishLabInTopic(topic, book)    
     
   def publishCourse(self, course):
@@ -113,13 +92,13 @@ class Publisher:
       self.publishTopicInCourse(course, topic)
     os.chdir(courseDir);
     if settings.wall:
-      self.publishPage('topicwall.html', self.resolveCoursePath(course) +'/topicwall.html', dict(course=course, topics=completeTopics))
-      self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics))
+      allLabs = []
+      for topic in completeTopics:
+        if topic.bookList:
+          allLabs.extend(topic.bookList)
+      labs = chunks(allLabs, 3)
 
+      self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, labs=labs))
 
-  def publishProfile(self, profile):
-    copyStyle(self.resolveCoursePath(profile) + '/style')
-    self.publishPage('profile.html', self.resolveCoursePath(profile) +'/index.html', dict(profile=profile))    
-    
     
     

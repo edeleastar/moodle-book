@@ -1,43 +1,19 @@
 # extends "main.html"
 # block content 
 
-  <div id="container" class="ui stackable grid">
+  <div class="container">
 
+  # set title = course.title
+  # set parent = "#"
+  # include "header.html"
 
-  <header class="ui middle aligned grid section">
-    <div class="ten wide column">
-      <h1>{{course.title}}</h1>
-      <h3> {{course.programme}}</h3>
-    </div>
-    <div class="six wide column">
-      <img class="ui image" src="http://www.wit.ie/assets/images/wit_crest.png">
-    </div>
-  </header>
+  <ul>
+   # for topic in course.topicList
+     <li>  <a class="item" href=" ./{{topic.folder}}/index.html">  {{topic.title}} </a></li>
+   # endfor
+   <li> <a class="item" href=" labwall.html"> All Tutorials </a> </li>
+  </ul>
 
-    <section class="ui four wide column">
-    
-      <nav class="ui vertical fluid pointing menu">
-        <div class="menu">
-          # for topic in course.topicList 
-            <a class="item" href=" ./{{topic.folder}}/index.html">  {{topic.title}} </a>
-          # endfor
-        # if wall
-          <a class="item" href=" topicwall.html"> All Topics </a>
-          <a class="item" href=" labwall.html"> All Labs </a>
-        #endif
-        </div>
-      </nav>
-      
-    </section>
-        
-    <section class="ui twelve wide column">
-    
-      <section class="ui stacked segment">
-        {{course.content}}
-      </section>
-      
-    </section>
-    
-  </div> 
+  </div>
   	
 # endblock

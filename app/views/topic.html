@@ -1,81 +1,26 @@
 # extends "main.html"
 # block content
 
-<section id="container" class="ui stackable grid">
+<section class="container">
 
+  # set title = topic.title
+  # set parent = "../index.html"
   # include "header.html"
 
-  <section id="menu" id="topic" class="ui four wide column">
-    <nav class="ui vertical fluid pointing menu">
-      <div class="menu">
-        # for currentTopic in course.topicList
-        # if currentTopic.folder == topic.folder
-        <a class="active item" href=" ../{{currentTopic.folder}}/index.html"> {{currentTopic.title}} </a>
-        # else
-        <a class="item" href=" ../{{currentTopic.folder}}/index.html"> {{currentTopic.title}} </a>
-        # endif
-        # endfor
-        # if wall
-          <a class="item" href=" ../topicwall.html"> All Topics </a>
-          <a class="item" href=" ../labwall.html"> All Labs </a>
-        #endif
-      </div>
-    </nav>
-  </section>
+  #for chunks in labs
+    <div class="row equal">
+      # for book in chunks
+        <div class="col-md-4">
+
+        # set imgPath = book.img
+       # set linkPath =  book.folder + "/index.html"
+        # include "labpanel.html"
+
+        </div>
+    # endfor
+    </div>
+  #endfor
 
 
-
-# if external
-
-    <section id="topic" class="ui doubling twelve wide column segment">
-      {{topic.content}}
-      <div class="ui cards">
-        # for topicElement in topic.topicElements
-          # include "slide-card.html"
-        # endfor
-      </div>
-      <h1> Labs </h1>
-      <div class="ui cards">
-        # for book in topic.bookList
-          # include "lab-card.html"
-        # endfor
-      </div>
-    </section>
-  </div>
-
-# else
-
-# set toggle = false
-  <section class="ui twelve wide column">
-    <section class="ui stacked segment">
-      {{topic.content}}
-      <div class="ui middle aligned grid">
-        # for topicElement in topic.topicElements
-          <div class="row">
-            # set toggle = not toggle
-            # if toggle
-              #include "topic-element-left.html"
-            # else
-              #include "topic-element-right.html"
-            # endif
-          </div>
-        # endfor
-
-        # for book in topic.bookList
-          <div class="row">
-            # if toggle
-              #include "lab-element-left.html"
-            # else
-              #include "lab-element-right.html"
-            # endif
-            # set toggle = not toggle
-          </div>
-        # endfor
-      </div>
-    </section>
-  </section>
-
-# endif
-  
 </section>
 # endblock 
