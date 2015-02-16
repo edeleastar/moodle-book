@@ -64,7 +64,6 @@ class Publisher:
     self.publishTopicInCourse(course, topic)
 
   def publishTopicInCourse(self, course, topic):
-    copyFolder ('./pdf', self.resolveTopicPath(topic) + '/pdf')
     ensure_dir(self.resolveTopicPath(topic))
     copyFile (topic.topicImg, self.resolveTopicPath(topic) )
     labs = chunks(topic.bookList, 3)

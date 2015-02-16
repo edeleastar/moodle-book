@@ -15,12 +15,6 @@ class TopicElement:
     if self.img:
       self.fullImgPath = topicFolder + self.img[1:]
       self.fullPdfPath = topicFolder + '/pdf/' + self.pdf
-    mdFile = "./pdf/" + name + ".md"
-    if (path.isfile(mdFile)):
-      self.text = parse_markdown ("./pdf/" + name + ".md")
-      self.title = getHeadder("./pdf/" + name + ".md")
-      self.textWithoutHeadder = parse_markdown_without_header ("./pdf/" + name + ".md")
-
 
 class BookSummary:
   def __init__(self, topicFolder, name, objectives):
@@ -52,10 +46,6 @@ class Topic:
     self.topicTest = "test"
     self.topicElements = []
     self.topicFolder = folder
-    pdfList   = glob('./pdf/*.pdf')
-    for pdf in pdfList:
-      elementName, type = path.splitext(path.basename(pdf))
-      self.topicElements.append(TopicElement(self.topicFolder, elementName))
 
     self.bookList = []
     books = glob('./book*')  

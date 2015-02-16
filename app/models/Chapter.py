@@ -14,16 +14,4 @@ class Chapter:
     self.content = parse_markdown(mdFile)
     self.title   = getHeadder(mdFile)
     self.contentWithoutHeadder = parse_markdown_without_header (mdFile)
-
-'''
-    with open(mdFile, 'r') as fin:
-      data = fin.read().splitlines(True)
-    with open('temp.md', 'w') as fout:
-      fout.writelines(data[1:])
-      fout.close()
-    self.contentWithoutHeadder  = parse_markdown('temp.md')
-
-
-    remove ('temp.md')
-'''
     
