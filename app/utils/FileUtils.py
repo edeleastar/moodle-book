@@ -13,19 +13,10 @@ def copyFolder (source, dest):
   if (os.path.exists(dest)):
     shutil.rmtree (dest)
   if os.path.exists(source):
-    shutil.copytree (source, dest)  
-     
-def copyStyle (destinationPath): 
-  if settings.external != True:
-    if settings.verbose:
-      print ('writing ' + destinationPath + '')
-    ensure_dir(destinationPath)
-    pathname = os.path.dirname(sys.argv[0])        
-    absPath  = os.path.abspath(pathname)
-    (parent, app) = os.path.split(absPath)
-    sourcePath = parent
-    shutil.rmtree (destinationPath)
-    shutil.copytree (sourcePath + '/public/style',  destinationPath)
+    shutil.copytree (source, dest)
+
+def copyFile (source, dest):
+  shutil.copy (source, dest)
   
 def generatePage (fileName, sections):
   if (os.path.isfile(fileName)):
@@ -117,3 +108,4 @@ def chunks(l, n):
     """
   for i in xrange(0, len(l), n):
     yield l[i:i+n]
+

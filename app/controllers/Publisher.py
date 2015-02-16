@@ -1,4 +1,4 @@
-from utils.FileUtils  import copyFolder, copyStyle
+from utils.FileUtils  import copyFolder, copyFile, ensure_dir
 from utils.FileUtils import writePage, getContributors, getAnalyticCode, chunks
 import shutil
 import settings 
@@ -34,8 +34,6 @@ class Publisher:
     content.update ({'contributors':getContributors()})
     tracking = getAnalyticCode('ga')
     content.update({'tracking':tracking})
-    content.update({'external':settings.external})
-    content.update({'wall':settings.wall})
 
     writePage(htmlFile, template.render(content))
 
@@ -54,7 +52,6 @@ class Publisher:
     print ('  -->' + book.title)
     self.remove (self.resolveSitePath(book))
     self.copyDirectories(book, self.resolveSitePath(book))
-    copyStyle(self.resolveSitePath(book) + '/style')
     self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
     shutil.make_archive(self.resolveSitePath(book) + '-archive', format="zip", root_dir= self.resolveSitePath(book))   
     
@@ -67,8 +64,9 @@ class Publisher:
     self.publishTopicInCourse(course, topic)
 
   def publishTopicInCourse(self, course, topic):
-    copyStyle(self.resolveTopicPath(topic) + '/style')
     copyFolder ('./pdf', self.resolveTopicPath(topic) + '/pdf')
+    ensure_dir(self.resolveTopicPath(topic))
+    copyFile (topic.topicImg, self.resolveTopicPath(topic) )
     labs = chunks(topic.bookList, 3)
     self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic, labs=labs))
 
@@ -76,12 +74,9 @@ class Publisher:
     for book in topic.bookList:
       os.chdir(topicDir + '/' + book.folder)
       book = Book()
-      #self.publishBook(book)
       self.publishLabInTopic(topic, book)    
     
   def publishCourse(self, course):
-    copyStyle(self.resolveCoursePath(course) + '/style')
-    self.publishPage('course.html', self.resolveCoursePath(course) +'/index.html', dict(course=course))
     courseDir = os.getcwd()
     completeTopics = []
     for topic in course.topicList:
@@ -91,14 +86,16 @@ class Publisher:
       completeTopics.append(topic)
       self.publishTopicInCourse(course, topic)
     os.chdir(courseDir);
-    if settings.wall:
-      allLabs = []
-      for topic in completeTopics:
-        if topic.bookList:
-          allLabs.extend(topic.bookList)
-      labs = chunks(allLabs, 3)
+    course.topicList = completeTopics
+    self.publishPage('course.html', self.resolveCoursePath(course) +'/index.html', dict(course=course))
 
-      self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, labs=labs))
+    allLabs = []
+    for topic in completeTopics:
+      if topic.bookList:
+        allLabs.extend(topic.bookList)
+    labs = chunks(allLabs, 3)
+
+    self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, labs=labs))
 
     
     

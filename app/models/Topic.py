@@ -11,6 +11,7 @@ class TopicElement:
     self.topicFolder = topicFolder
     self.pdf  = name + '.pdf'
     self.img  = getImageFile ('./pdf/' + name)
+
     if self.img:
       self.fullImgPath = topicFolder + self.img[1:]
       self.fullPdfPath = topicFolder + '/pdf/' + self.pdf
@@ -45,7 +46,10 @@ class Topic:
     checkFileExists ('topic.md')   
     root, self.folder  = path.split(getcwd())
     self.content  = parse_markdown('topic.md')
+    self.contentWithoutHeadder = parse_markdown_without_header ('topic.md')
     self.title    = getHeadder('topic.md')
+    self.topicImg = getImageFile ('topic')
+    self.topicTest = "test"
     self.topicElements = []
     self.topicFolder = folder
     pdfList   = glob('./pdf/*.pdf')

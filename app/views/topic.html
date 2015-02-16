@@ -1,26 +1,20 @@
 # extends "main.html"
 # block content
 
-<section class="container">
+# set title = topic.title
+# set parent = "../index.html"
+# include "header.html"
 
-  # set title = topic.title
-  # set parent = "../index.html"
-  # include "header.html"
-
-  #for chunks in labs
-    <div class="row equal">
-      # for book in chunks
-        <div class="col-md-4">
-
+#for chunks in labs
+  <div class="row equal">
+    # for book in chunks
+      <div class="col-md-4">
         # set imgPath = book.img
-       # set linkPath =  book.folder + "/index.html"
+        # set linkPath =  book.folder + "/index.html"
         # include "labpanel.html"
-
-        </div>
+      </div>
     # endfor
-    </div>
-  #endfor
+  </div>
+#endfor
 
-
-</section>
 # endblock 

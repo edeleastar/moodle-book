@@ -1,19 +1,24 @@
 # extends "main.html"
-# block content 
+# block content
 
-  <div class="container">
+# set title = course.title
+# set parent = "#"
+# include "header.html"
 
-  # set title = course.title
-  # set parent = "#"
-  # include "header.html"
-
-  <ul>
-   # for topic in course.topicList
-     <li>  <a class="item" href=" ./{{topic.folder}}/index.html">  {{topic.title}} </a></li>
-   # endfor
-   <li> <a class="item" href=" labwall.html"> All Tutorials </a> </li>
-  </ul>
-
+  # for topic in course.topicList
+    <div class="row">
+      # include "topicelement.html"
+    </div>
+ # endfor
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-responsive" src="https://www.tssg.org/files/2015/02/TSSG-logo1.png">
+    </div>
+    <div class="col-md-8">
+      <h2>  <a class="item" href="labwall.html"> All Tutorials </a> </h2>
+    </div>
   </div>
-  	
+    <hr>
+
 # endblock

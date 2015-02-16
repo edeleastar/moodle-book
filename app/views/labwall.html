@@ -5,26 +5,20 @@
 # include "labwall.css"
 </style>
 
-<section class="container">
+# set title = course.title
+# set parent = "index.html"
+# include "header.html"
 
-  # set title = course.title
-  # set parent = "index.html"
-  # include "header.html"
-
-  #for chunks in labs
-    <div class="row equal">
-      # for book in chunks
-        <div class="col-md-4">
-
+#for chunks in labs
+  <div class="row equal">
+    # for book in chunks
+      <div class="col-md-4">
         # set imgPath  = book.fullImgPath
         # set linkPath = book.topicFolder + "/" + book.folder + "/index.html"
         # include "labpanel.html"
-
-        </div>
+      </div>
     # endfor
-    </div>
-  #endfor
-
-</section>
+  </div>
+#endfor
 
 # endblock

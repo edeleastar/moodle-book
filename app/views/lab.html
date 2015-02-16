@@ -24,28 +24,16 @@
 
 <br><br>
 
-<div class="section">
-  <div class="container">
-
-    <div class="tab-content">
-      <div class="tab-pane active" id="{{book.chapters[0].shortTitle}}">
-        {{ book.chapters[0].content }}
-	    </div>
-
-      # for chapter in book.chapters[1:]
-        <div class="tab-pane fade" id="{{chapter.shortTitle}}">
-          {{ chapter.content }}
-	      </div>
-      # endfor
-    </div>
-
+<div class="tab-content">
+  <div class="tab-pane active" id="{{book.chapters[0].shortTitle}}">
+    {{ book.chapters[0].content }}
   </div>
+
+  # for chapter in book.chapters[1:]
+    <div class="tab-pane fade" id="{{chapter.shortTitle}}">
+      {{ chapter.content }}
+    </div>
+  # endfor
 </div>
 
-<script>
-  $(document).ready(function()
-  {
-    $("img").addClass ("img-responsive");
-  })
- </script>
 # endblock 

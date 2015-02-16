@@ -1,13 +1,9 @@
 import os
 
-version = '0.4'
+version = '0.1'
 
 contributors    = ''
 verbose         = False
-pagetitles      = False
-bootstrap       = False
-external        = False
-wall            = False
 outputfolder    = './public'
 viewsPath       = ""
 templateLoader  = None  
