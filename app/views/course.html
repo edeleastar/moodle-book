@@ -5,20 +5,21 @@
 # set parent = "#"
 # include "header.html"
 
-  # for topic in course.topicList
-    <div class="row">
-      # include "topicelement.html"
-    </div>
- # endfor
-  <hr>
+# for topic in course.topicList
   <div class="row">
-    <div class="col-md-4">
-      <img class="img-responsive" src="https://www.tssg.org/files/2015/02/TSSG-logo1.png">
-    </div>
-    <div class="col-md-8">
-      <h2>  <a class="item" href="labwall.html"> All Tutorials </a> </h2>
-    </div>
+    # include "topicelement.html"
   </div>
-    <hr>
+  <hr>
+# endfor
+
+<div class="row">
+  <div class="col-md-4">
+
+  </div>
+  <div class="col-md-8">
+    <h2>  <a class="item" href="labwall.html"> All Tutorials </a> </h2>
+  </div>
+</div>
+<hr>
 
 # endblock
