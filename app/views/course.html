@@ -1,13 +1,20 @@
 # extends "main.html"
 # block content
 
-# set title = course.title
-# set parent = "#"
-# include "header.html"
+<div class="row">
+  <div class="col-md-8">
+     <div class="page-header">
+       <h1>  {{course.title}}  </h1>
+      </div>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
+
 
 # for topic in course.topicList
   <div class="row">
-    # include "topicelement.html"
+    # include "partials/topicelement.html"
   </div>
   <hr>
 # endfor

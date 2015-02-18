@@ -38,7 +38,6 @@ class Publisher:
     writePage(htmlFile, template.render(content))
 
   def publishLab(self,  book):
-    print ('  -->' + book.title)
     bookFolder = os.getcwd()
     topicFolder, bookFolderName  = os.path.split(bookFolder)
     os.chdir(topicFolder)
@@ -53,8 +52,7 @@ class Publisher:
     self.remove (self.resolveSitePath(book))
     self.copyDirectories(book, self.resolveSitePath(book))
     self.publishPage('lab.html',self.resolveSitePath(book) +'/index.html', dict(title=book.title, topic=topic, book=book))
-    shutil.make_archive(self.resolveSitePath(book) + '-archive', format="zip", root_dir= self.resolveSitePath(book))   
-    
+
   def publishTopic(self, topic):
     topicFolder = os.getcwd()
     courseFolder, topicFolderName  = os.path.split(topicFolder)
@@ -69,11 +67,15 @@ class Publisher:
     labs = chunks(topic.bookList, 3)
     self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic, labs=labs))
 
-    topicDir = os.getcwd() 
+    topicDir = os.getcwd()
+
+    for talk in topic.talkList:
+      copyFolder (talk.name, self.resolveTopicPath(topic) + '/' + talk.name)
     for book in topic.bookList:
       os.chdir(topicDir + '/' + book.folder)
       book = Book()
-      self.publishLabInTopic(topic, book)    
+      self.publishLabInTopic(topic, book)
+
     
   def publishCourse(self, course):
     courseDir = os.getcwd()
@@ -93,8 +95,12 @@ class Publisher:
       if topic.bookList:
         allLabs.extend(topic.bookList)
     labs = chunks(allLabs, 3)
-
     self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, labs=labs))
 
-    
-    
+    allTalks = []
+    for topic in completeTopics:
+      if topic.talkList:
+        allTalks.extend(topic.talkList)
+    talks = chunks(allTalks, 3)
+    #self.publishPage('talkwall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, topics=completeTopics, talks=talks))
+

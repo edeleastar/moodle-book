@@ -1,9 +1,31 @@
 # extends "main.html"
 # block content
 
-# set title = topic.title
-# set parent = "../index.html"
-# include "header.html"
+<div class="row">
+  <div class="col-md-8">
+     <div class="page-header">
+       <h1>
+         <a href="../index.html"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+         {{title}}
+       </h1>
+      </div>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+</div>
+
+#for talk in topic.talkList
+  <div class="row equal">
+      <div class="col-md-4">
+        # set imgPath = talk.img
+        # set linkPath =  talk.pdf
+        # set title = talk.title
+        # set objectives = talk.textWithoutHeadder
+        # include "partials/labpanel.html"
+      </div>
+  </div>
+#endfor
 
 #for chunks in labs
   <div class="row equal">
@@ -11,7 +33,9 @@
       <div class="col-md-4">
         # set imgPath = book.img
         # set linkPath =  book.folder + "/index.html"
-        # include "labpanel.html"
+        # set title = book.title
+        # set objectives = book.objectivesWithoutHeadder
+        # include "partials/labpanel.html"
       </div>
     # endfor
   </div>

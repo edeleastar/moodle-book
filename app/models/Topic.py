@@ -5,16 +5,30 @@ from utils.FileUtils import getHeadder, getImageFile
 from utils.CmdUtils import checkFileExists
 from os import remove
 
-class TopicElement:
+class TalkSummary:
   def __init__(self, topicFolder, name):
     self.name = name
     self.topicFolder = topicFolder
-    self.pdf  = name + '.pdf'
-    self.img  = getImageFile ('./pdf/' + name)
+    pdfs = glob('./' + name + '/*.pdf')
+
+    if len(pdfs) == 0:
+      print ('Cannot locate pdf for talk in ' + self.topicFolder + ": " + name)
+      exit()
+
+    self.pdf  = pdfs[0]
+    fileName, fileExtension = path.splitext (self.pdf)
+    self.img  = getImageFile (fileName)
 
     if self.img:
       self.fullImgPath = topicFolder + self.img[1:]
-      self.fullPdfPath = topicFolder + '/pdf/' + self.pdf
+      self.fullPdfPath = topicFolder + self.pdf[1:]
+
+    mdFile = fileName + ".md"
+    if (path.isfile(mdFile)):
+      self.text = parse_markdown (mdFile)
+      self.title = getHeadder(mdFile)
+      self.textWithoutHeadder = parse_markdown_without_header (mdFile)
+
 
 class BookSummary:
   def __init__(self, topicFolder, name, objectives):
@@ -43,9 +57,12 @@ class Topic:
     self.contentWithoutHeadder = parse_markdown_without_header ('topic.md')
     self.title    = getHeadder('topic.md')
     self.topicImg = getImageFile ('topic')
-    self.topicTest = "test"
-    self.topicElements = []
     self.topicFolder = folder
+
+    self.talkList = []
+    talks = glob('./talk*')
+    for talk in talks:
+      self.talkList.append( TalkSummary(self.topicFolder, path.basename(talk)) )
 
     self.bookList = []
     books = glob('./book*')  

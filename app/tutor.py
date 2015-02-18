@@ -24,6 +24,5 @@ if __name__ == "__main__":
     else:
       print ('Publishing single book')
       book = Book()
-      app.publishBook(book)
       app.publishLab(book)
 

@@ -2,12 +2,12 @@
 # block content
 
 <style>
-# include "labwall.css"
+# include "css/labwall.css"
 </style>
 
 # set title = course.title
 # set parent = "index.html"
-# include "header.html"
+# include "partials/header.html"
 
 #for chunks in labs
   <div class="row equal">
@@ -15,7 +15,9 @@
       <div class="col-md-4">
         # set imgPath  = book.fullImgPath
         # set linkPath = book.topicFolder + "/" + book.folder + "/index.html"
-        # include "labpanel.html"
+        # set title = book.title
+        # set objectives = book.objectivesWithoutHeadder
+        # include "partials/labpanel.html"
       </div>
     # endfor
   </div>

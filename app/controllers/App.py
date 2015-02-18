@@ -21,10 +21,7 @@ class App:
     settings.templateEnv    = jinja2.Environment( loader=settings.templateLoader, trim_blocks=True, lstrip_blocks=True, line_statement_prefix='#' )
    
     print ('Tutor Version ' + settings.version + ' (-h for commands)')
-   
-  def publishBook(self, book):
-    self.publisher.publishBook(book)   
- 
+
   def publishLab(self, book):
     self.publisher.publishLab(book)   
 
