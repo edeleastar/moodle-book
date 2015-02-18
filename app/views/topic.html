@@ -15,27 +15,21 @@
   </div>
 </div>
 
-#for talk in topic.talkList
+#for talkchunks in talks
   <div class="row equal">
+    # for resource in talkchunks
       <div class="col-md-4">
-        # set imgPath = talk.img
-        # set linkPath =  talk.pdf
-        # set title = talk.title
-        # set objectives = talk.textWithoutHeadder
-        # include "partials/labpanel.html"
+        # include "partials/panel.html"
       </div>
+    # endfor
   </div>
 #endfor
 
-#for chunks in labs
+#for labchunks in labs
   <div class="row equal">
-    # for book in chunks
+    # for resource in labchunks
       <div class="col-md-4">
-        # set imgPath = book.img
-        # set linkPath =  book.folder + "/index.html"
-        # set title = book.title
-        # set objectives = book.objectivesWithoutHeadder
-        # include "partials/labpanel.html"
+        # include "partials/panel.html"
       </div>
     # endfor
   </div>

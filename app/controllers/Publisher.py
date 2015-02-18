@@ -63,16 +63,20 @@ class Publisher:
 
   def publishTopicInCourse(self, course, topic):
     ensure_dir(self.resolveTopicPath(topic))
-    copyFile (topic.topicImg, self.resolveTopicPath(topic) )
+    if topic.topicImg != None:
+      copyFile (topic.topicImg, self.resolveTopicPath(topic) )
+
     labs = chunks(topic.bookList, 3)
-    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic, labs=labs))
+    talks = chunks(topic.talkList, 3)
+
+    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic, labs=labs, talks=talks))
 
     topicDir = os.getcwd()
 
     for talk in topic.talkList:
       copyFolder (talk.name, self.resolveTopicPath(topic) + '/' + talk.name)
     for book in topic.bookList:
-      os.chdir(topicDir + '/' + book.folder)
+      os.chdir(topicDir + '/' + book.name)
       book = Book()
       self.publishLabInTopic(topic, book)
 
@@ -95,12 +99,12 @@ class Publisher:
       if topic.bookList:
         allLabs.extend(topic.bookList)
     labs = chunks(allLabs, 3)
-    self.publishPage('labwall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, labs=labs))
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, resources=labs))
 
     allTalks = []
     for topic in completeTopics:
       if topic.talkList:
         allTalks.extend(topic.talkList)
     talks = chunks(allTalks, 3)
-    #self.publishPage('talkwall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, topics=completeTopics, talks=talks))
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, topics=completeTopics, resources=talks))
 

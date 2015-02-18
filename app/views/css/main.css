@@ -5,5 +5,10 @@ body
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
 }
 
+figcaption
+{
+  margin-bottom: 20px;
+}
+
 
 {% endraw %}

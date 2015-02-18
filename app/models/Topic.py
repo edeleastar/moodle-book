@@ -5,39 +5,46 @@ from utils.FileUtils import getHeadder, getImageFile
 from utils.CmdUtils import checkFileExists
 from os import remove
 
-class TalkSummary:
+class Resource:
   def __init__(self, topicFolder, name):
     self.name = name
     self.topicFolder = topicFolder
+
+class TalkSummary (Resource):
+  def __init__(self, topicFolder, name):
+    Resource.__init__(self, topicFolder, name)
+
     pdfs = glob('./' + name + '/*.pdf')
 
     if len(pdfs) == 0:
       print ('Cannot locate pdf for talk in ' + self.topicFolder + ": " + name)
       exit()
 
-    self.pdf  = pdfs[0]
-    fileName, fileExtension = path.splitext (self.pdf)
-    self.img  = getImageFile (fileName)
+    self.link  = pdfs[0]
+    fileName, fileExtension = path.splitext (self.link)
+    self.imgPath  = getImageFile (fileName)
 
-    if self.img:
-      self.fullImgPath = topicFolder + self.img[1:]
-      self.fullPdfPath = topicFolder + self.pdf[1:]
+    if self.imgPath:
+      self.fullImgPath = topicFolder + self.imgPath[1:]
+      self.fullPdfPath = topicFolder + self.link[1:]
 
     mdFile = fileName + ".md"
     if (path.isfile(mdFile)):
-      self.text = parse_markdown (mdFile)
+      self.objectives = parse_markdown (mdFile)
       self.title = getHeadder(mdFile)
-      self.textWithoutHeadder = parse_markdown_without_header (mdFile)
+      self.objectivesWithoutHeadder = parse_markdown_without_header (mdFile)
 
 
-class BookSummary:
-  def __init__(self, topicFolder, name, objectives):
-    self.topicFolder = topicFolder
-    self.folder  = name;
+class BookSummary (Resource):
+  def __init__(self, topicFolder, name):
+    Resource.__init__(self, topicFolder, name)
+
     objectivesMd = glob('./' + name + '/0*.md')
     if len(objectivesMd) == 0:
       print ('Cannot locate lab steps in ' + self.folder +  '. Lab steps must be named 0X.XX.md')
       exit()
+
+    self.link= name + "/index.html"
       
     self.objectives = parse_markdown (objectivesMd[0])
     self.objectivesWithoutHeadder = parse_markdown_without_header (objectivesMd[0])
@@ -45,9 +52,9 @@ class BookSummary:
     s = objectivesMd[0]
     s = s[s.find('.')+len('.'):s.rfind('.')]
     self.title = s[s.find('.')+1 :  ]
-    self.img = getImageFile ('./' + name + '/img/main')  
-    if self.img:
-      self.fullImgPath = topicFolder + self.img[1:]
+    self.imgPath = getImageFile ('./' + name + '/img/main')
+    if self.imgPath:
+      self.fullImgPath = topicFolder + self.imgPath[1:]
 
 class Topic:
   def __init__(self, folder):
@@ -67,4 +74,4 @@ class Topic:
     self.bookList = []
     books = glob('./book*')  
     for lab in books:
-      self.bookList.append( BookSummary(self.topicFolder, path.basename(lab), "") )
+      self.bookList.append( BookSummary(self.topicFolder, path.basename(lab)) )
