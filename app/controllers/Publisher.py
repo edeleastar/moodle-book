@@ -66,10 +66,11 @@ class Publisher:
     if topic.topicImg != "none":
       copyFile (topic.topicImg, self.resolveTopicPath(topic) )
 
-    labs = chunks(topic.bookList, 3)
+    labs  = chunks(topic.bookList, 3)
     talks = chunks(topic.talkList, 3)
 
-    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(course=course, topic=topic, labs=labs, talks=talks))
+    self.publishPage('topic.html',  self.resolveTopicPath(topic) +'/index.html',  dict(course=course, topic=topic, labs=labs, talks=talks))
+    self.publishPage('moodle.html', self.resolveTopicPath(topic) +'/moodle.html', dict(course=course, topic=topic, labs=labs, talks=talks))
 
     topicDir = os.getcwd()
 
