@@ -1,39 +1,21 @@
 # extends "main.html"
 # block content
 
-<div class="row">
-  <div class="col-md-8">
-     <div class="page-header">
-       <h1>  {{course.title}}  </h1>
-      </div>
-  </div>
-  <div class="col-md-4">
-  </div>
-</div>
-
+{{ header("#", "glyphicon-chevron-right", course.title) }}
 
 # for topic in course.topicList
   <div class="row">
-    # include "partials/topicelement.html"
+    {{ hpanel ("panel-primary", "./" + topic.folder + "/index.html", "./" + topic.folder + "/" + topic.topicImg, topic.title, topic.contentWithoutHeadder) }}
   </div>
   <hr>
 # endfor
 
 <div class="row">
-  <div class="col-md-4">
-
+  <div class="col-md-6">
+    <h2>  <a class="item" href="talkwall.html"> All Lectures </a> </h2>
   </div>
-  <div class="col-md-8">
-    <h2>  <a class="item" href="labwall.html"> All Tutorials </a> </h2>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-4">
-
-  </div>
-  <div class="col-md-8">
-    <h2>  <a class="item" href="talkwall.html"> All Talks </a> </h2>
+  <div class="col-md-6">
+    <h2>  <a class="item" href="labwall.html"> All Labs </a> </h2>
   </div>
 </div>
 <hr>

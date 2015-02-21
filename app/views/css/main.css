@@ -10,5 +10,10 @@ figcaption
   margin-bottom: 20px;
 }
 
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
 
 {% endraw %}

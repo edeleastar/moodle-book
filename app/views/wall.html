@@ -5,15 +5,13 @@
 # include "css/labwall.css"
 </style>
 
-# set title = course.title
-# set parent = "index.html"
-# include "partials/header.html"
+{{ header("index.html", "glyphicon-chevron-left", course.title) }}
 
 #for chunks in resources
   <div class="row equal">
     # for resource in chunks
       <div class="col-md-4">
-        # include "partials/wallpanel.html"
+        {{ vpanel ("panel-primary", resource.topicFolder + "/" + resource.link, resource.fullImgPath, resource.title, resource.objectivesWithoutHeadder) }}
       </div>
     # endfor
   </div>

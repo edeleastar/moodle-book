@@ -1,10 +1,15 @@
-<div class="row">
-  <div class="col-md-8">
-     <div class="page-header">
-       <h1> <a href="{{parent}}"> {{title}} </a> </h1>
-      </div>
+# macro header(parent, icon, title)
+  <div class="row vertical-align">
+    <div class="col-md-8">
+       <div class="page-header">
+         <h1>
+           <a href="{{parent}}"> <span class="glyphicon {{icon}}" aria-hidden="true"></span> </a>
+           {{title}}
+         </h1>
+        </div>
+    </div>
+    <div class="col-md-4">
+      # include "images/witcrest.html"
+    </div>
   </div>
-  <div class="col-md-4">
-    <img class="img-responsive" src="https://www.tssg.org/files/2015/02/TSSG-logo1.png">
-  </div>
-</div>
+# endmacro

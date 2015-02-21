@@ -1,25 +1,13 @@
 # extends "main.html"
 # block content
 
-<div class="row">
-  <div class="col-md-8">
-     <div class="page-header">
-       <h1>
-         <a href="../index.html"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-         {{title}}
-       </h1>
-      </div>
-  </div>
-  <div class="col-md-4">
-
-  </div>
-</div>
+{{ header("../index.html", "glyphicon-chevron-left", topic.title) }}
 
 #for talkchunks in talks
   <div class="row equal">
     # for resource in talkchunks
       <div class="col-md-4">
-        # include "partials/panel.html"
+        {{ vpanel ("panel-info", resource.link, resource.imgPath, resource.title, resource.objectivesWithoutHeadder) }}
       </div>
     # endfor
   </div>
@@ -29,7 +17,7 @@
   <div class="row equal">
     # for resource in labchunks
       <div class="col-md-4">
-        # include "partials/panel.html"
+        {{ vpanel ("panel-danger", resource.link, resource.imgPath, resource.title, resource.objectivesWithoutHeadder) }}
       </div>
     # endfor
   </div>

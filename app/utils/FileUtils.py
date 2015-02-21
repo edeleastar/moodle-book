@@ -99,9 +99,13 @@ def getImageFile (imgFilePath):
       return imgFilePath + '.jpg'  
     else:       
      if path.isfile(imgFilePath + '.jpeg'):
-       return imgFilePath + '.jpeg' 
-     if path.isfile(imgFilePath + '.gif'):
-       return imgFilePath + '.gif' 
+       return imgFilePath + '.jpeg'
+     else:
+       if path.isfile(imgFilePath + '.gif'):
+         return imgFilePath + '.gif'
+       else:
+         return "none"
+
 
 def chunks(l, n):
   """ Yield successive n-sized chunks from l.

@@ -63,13 +63,13 @@ class Publisher:
 
   def publishTopicInCourse(self, course, topic):
     ensure_dir(self.resolveTopicPath(topic))
-    if topic.topicImg != None:
+    if topic.topicImg != "none":
       copyFile (topic.topicImg, self.resolveTopicPath(topic) )
 
     labs = chunks(topic.bookList, 3)
     talks = chunks(topic.talkList, 3)
 
-    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(title=topic.title, course=course, topic=topic, labs=labs, talks=talks))
+    self.publishPage('topic.html', self.resolveTopicPath(topic) +'/index.html', dict(course=course, topic=topic, labs=labs, talks=talks))
 
     topicDir = os.getcwd()
 
@@ -99,12 +99,12 @@ class Publisher:
       if topic.bookList:
         allLabs.extend(topic.bookList)
     labs = chunks(allLabs, 3)
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, resources=labs))
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, resources=labs, panel_type="panel-danger"))
 
     allTalks = []
     for topic in completeTopics:
       if topic.talkList:
         allTalks.extend(topic.talkList)
     talks = chunks(allTalks, 3)
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, topics=completeTopics, resources=talks))
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, topics=completeTopics, resources=talks, panel_type="panel-info"))
 
