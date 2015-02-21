@@ -96,14 +96,14 @@ class Publisher:
     self.publishPage('course.html', self.resolveCoursePath(course) +'/index.html', dict(course=course))
 
     allLabs = []
-    for topic in completeTopics:
+    for topic in course.topicList:
       if topic.bookList:
         allLabs.extend(topic.bookList)
     labs = chunks(allLabs, 3)
     self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, resources=labs, panel_type="panel-danger"))
 
     allTalks = []
-    for topic in completeTopics:
+    for topic in course.topicList:
       if topic.talkList:
         allTalks.extend(topic.talkList)
     talks = chunks(allTalks, 3)
