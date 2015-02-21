@@ -16,4 +16,8 @@ figcaption
   align-items: center;
 }
 
+.credits
+{
+  min-height:20px;
+}
 {% endraw %}
