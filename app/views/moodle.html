@@ -10,19 +10,23 @@
   </head>
   <body>
 
-  <div class="container">
- # from  "partials/vpanel.html" import vpanel  as vpanel
- #for resource in topic.talkList
-   <div class="col-md-6">
-     {{ vpanel ("panel-info", course.courseUrl + resource.topicFolder + resource.link[1:], course.courseUrl + resource.topicFolder + resource.imgPath[1:], resource.title, resource.objectivesWithoutHeadder) }}
-   </div>
- # endfor
+  #from  "partials/vpanel.html" import vpanel  as vpanel
 
- #for resource in topic.bookList
-   <div class="col-md-6">
-     {{ vpanel ("panel-danger", course.courseUrl + resource.topicFolder + "/" + resource.link, course.courseUrl + resource.topicFolder + resource.imgPath[1:], resource.title, resource.objectivesWithoutHeadder) }}
-   </div>
- # endfor
-  </div>
+ <div class="row">
+    #for resource in topic.talkList
+      <div class="col-md-6">
+      {{vpanel ("panel-info", course.courseUrl + resource.topicFolder + resource.link[1:], course.courseUrl + resource.topicFolder + resource.imgPath[1:], resource.title, resource.objectivesWithoutHeadder) }}
+      </div>
+    # endfor
+</div>
+
+ <div class="row">
+    #for resource in topic.bookList
+      <div class="col-md-6">
+      {{vpanel ("panel-danger", course.courseUrl + resource.topicFolder + "/" + resource.link, course.courseUrl + resource.topicFolder + resource.imgPath[1:], resource.title, resource.objectivesWithoutHeadder) }}
+      </div>
+   # endfor
+ <div>
+
   </body>
 </html>
