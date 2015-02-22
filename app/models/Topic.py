@@ -75,3 +75,11 @@ class Topic:
     books = glob('./book*')  
     for lab in books:
       self.bookList.append( BookSummary(self.topicFolder, path.basename(lab)) )
+
+    if "none" in self.topicImg:
+      if len (self.talkList) > 0:
+        self.topicImg = self.talkList[0].imgPath
+
+    if self.contentWithoutHeadder == "":
+      for talk in self.talkList:
+        self.contentWithoutHeadder += talk.objectivesWithoutHeadder
