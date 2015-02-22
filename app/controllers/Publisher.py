@@ -100,12 +100,12 @@ class Publisher:
       if topic.bookList:
         allLabs.extend(topic.bookList)
     labs = chunks(allLabs, 3)
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, topics=completeTopics, resources=labs, panel_type="panel-danger"))
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, subtitle="Labs", topics=completeTopics, resources=labs, panel_type="panel-danger"))
 
     allTalks = []
     for topic in course.topicList:
       if topic.talkList:
         allTalks.extend(topic.talkList)
     talks = chunks(allTalks, 3)
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, topics=completeTopics, resources=talks, panel_type="panel-info"))
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, subtitle="Presentations", topics=completeTopics, resources=talks, panel_type="panel-info"))
 
