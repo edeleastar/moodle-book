@@ -1,16 +1,14 @@
-# macro header(parent, icon, title, subtitle)
+# macro topicheader(parent, icon, title)
   <div class="row vertical-align">
     <div class="col-md-7">
        <div class="page-header">
          <h2>
            <a href="{{parent}}"> <span class="glyphicon {{icon}}" aria-hidden="true"></span> </a>
-           {{title}} <small> ({{subtitle}}) </small>
+           {{title}}
          </h2>
         </div>
     </div>
     <div class="col-md-2">
-       <a href="talkwall.html" class="btn btn-block btn-primary btn-sm">Presentations</a>
-       <a href="labwall.html" class="btn btn-block btn-primary btn-sm">Labs</a>
     </div>
     <div class="col-md-3">
       # include "images/witcrest.html"
