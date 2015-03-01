@@ -33,6 +33,9 @@ class TalkSummary (Resource):
       self.objectives = parse_markdown (mdFile)
       self.title = getHeadder(mdFile)
       self.objectivesWithoutHeadder = parse_markdown_without_header (mdFile)
+    else:
+      print ('Cannot locate md for talk in ' + self.topicFolder + ": " + name)
+      exit()
 
 
 class BookSummary (Resource):
