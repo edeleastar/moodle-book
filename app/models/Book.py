@@ -6,6 +6,7 @@ import sys
 class Book:
   def __init__(self):
     self.mdFiles = glob('*.md')
+    self.mdFiles.sort()
     self.chapters = []
     self.parseMarkdown()
     folders = [x[0] for x in walk('.')]

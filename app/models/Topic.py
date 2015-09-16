@@ -43,6 +43,7 @@ class BookSummary (Resource):
     Resource.__init__(self, topicFolder, name)
 
     objectivesMd = glob('./' + name + '/0*.md')
+    objectivesMd.sort()
     if len(objectivesMd) == 0:
       print ('Cannot locate lab steps in ' + self.folder +  '. Lab steps must be named 0X.XX.md')
       exit()
