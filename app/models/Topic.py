@@ -72,11 +72,13 @@ class Topic:
 
     self.talkList = []
     talks = glob('./talk*')
+    talks.sort()
     for talk in talks:
       self.talkList.append( TalkSummary(self.topicFolder, path.basename(talk)) )
 
     self.bookList = []
-    books = glob('./book*')  
+    books = glob('./book*')
+    books.sort()
     for lab in books:
       self.bookList.append( BookSummary(self.topicFolder, path.basename(lab)) )
 
