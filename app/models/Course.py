@@ -18,7 +18,7 @@ class Course:
     ignoreList = getIgnoreList()
     self.topicList  = []
     allTopics  = glob('topic*')
+    allTopics.sort()
     topicsToPublish = [t for t in allTopics if t not in ignoreList]
     for topic in topicsToPublish:
       self.topicList.append(TopicSummary(topic))  
-    
