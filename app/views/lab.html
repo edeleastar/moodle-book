@@ -5,40 +5,41 @@
 # include "css/lab.css"
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        {{topic.title}}
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#{{book.chapters[0].shortTitle}}" data-toggle="tab"> {{book.chapters[0].shortTitle}} </a> </li>
-        # for chapter in book.chapters[1:]
-          <li><a href= "#{{chapter.shortTitle}}" data-toggle="tab"> {{chapter.shortTitle}} </a> </li>
-        # endfor
-      </ul>
-    </div>
-  </div>
-</div>
 
-<br><br>
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+  <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    {{topic.title}}
+  </header>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="{{book.chapters[0].shortTitle}}">
-    {{ book.chapters[0].content }}
-  </div>
-
+  <a class="active item" data-tab="{{book.chapters[0].shortTitle}}"> {{book.chapters[0].shortTitle}} </a>
   # for chapter in book.chapters[1:]
-    <div class="tab-pane fade" id="{{chapter.shortTitle}}">
-      {{ chapter.content }}
-    </div>
+    <a class="item" data-tab="{{chapter.shortTitle}}"> {{chapter.shortTitle}} </a>
   # endfor
 </div>
-<br> <br>
+
+<div class="ui bottom attached  active tab segment lab" data-tab="{{book.chapters[0].shortTitle}}">
+  <div class "ui segment">
+    <br>
+  </div>
+  {{ book.chapters[0].content }}
+</div>
+# for chapter in book.chapters[1:]
+<div class="ui bottom attached tab  segment lab" data-tab="{{chapter.shortTitle}}">
+    <div class "ui segment">
+    <br>
+  </div>
+  {{ chapter.content }}
+</div>
+# endfor
 
 
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
 # endblock 

@@ -69,7 +69,7 @@ class Publisher:
     labs  = chunks(topic.bookList, 3)
     talks = chunks(topic.talkList, 3)
 
-    self.publishPage('topic.html',  self.resolveTopicPath(topic) +'/index.html',  dict(course=course, topic=topic, labs=labs, talks=talks))
+    self.publishPage('topic.html',  self.resolveTopicPath(topic) +'/index.html',  dict(course=course, topic=topic, labs=topic.bookList, talks=topic.talkList))
     self.publishPage('moodle.html', self.resolveTopicPath(topic) +'/moodle.html', dict(course=course, topic=topic, labs=labs, talks=talks))
 
     topicDir = os.getcwd()
@@ -99,13 +99,13 @@ class Publisher:
     for topic in course.topicList:
       if topic.bookList:
         allLabs.extend(topic.bookList)
-    labs = chunks(allLabs, 3)
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, subtitle="Labs", topics=completeTopics, resources=labs, panel_type="panel-danger"))
+    #labs = chunks(allLabs, 3)
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/labwall.html', dict(course=course, subtitle="Labs", topics=completeTopics, resources=allLabs, panel_type="lab"))
 
     allTalks = []
     for topic in course.topicList:
       if topic.talkList:
         allTalks.extend(topic.talkList)
-    talks = chunks(allTalks, 3)
-    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, subtitle="Presentations", topics=completeTopics, resources=talks, panel_type="panel-info"))
+    #talks = chunks(allTalks, 3)
+    self.publishPage('wall.html', self.resolveCoursePath(course) +'/talkwall.html', dict(course=course, subtitle="Presentations", topics=completeTopics, resources=allTalks, panel_type="film"))
 

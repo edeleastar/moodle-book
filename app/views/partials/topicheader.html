@@ -1,17 +1,14 @@
 # macro topicheader(parent, icon, title)
-  <div class="row vertical-align">
-    <div class="col-md-7">
-       <div class="page-header">
-         <h2>
-           <a href="{{parent}}"> <span class="glyphicon {{icon}}" aria-hidden="true"></span> </a>
-           {{title}}
-         </h2>
-        </div>
+
+  <header class="ui middle aligned stackable grid segment">
+    <div class="eight wide column">
+      <h2>
+        <a href="{{parent}}"> <i class="chevron left icon"></i> </a> {{title}}
+      </h2>
     </div>
-    <div class="col-md-2">
+    <div class="eight wide column">
+      <img class="ui image" src="http://www.wit.ie/assets/images/wit_crest.png">
     </div>
-    <div class="col-md-3">
-      # include "images/witcrest.html"
-    </div>
-  </div>
+  </header>
+
 # endmacro

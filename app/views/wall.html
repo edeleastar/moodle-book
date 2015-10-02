@@ -1,20 +1,12 @@
 # extends "main.html"
 # block content
 
-<style>
-# include "css/labwall.css"
-</style>
 
 {{ header("index.html", "glyphicon-chevron-left", course.title, subtitle) }}
 
-#for chunks in resources
-  <div class="row equal">
-    # for resource in chunks
-      <div class="col-md-4">
-        {{ vpanel ("panel-primary", resource.topicFolder + "/" + resource.link, resource.fullImgPath, resource.title, resource.objectivesWithoutHeadder) }}
-      </div>
-    # endfor
-  </div>
-#endfor
-
+<div class="ui link cards">
+# for resource in resources
+    {{ card (panel_type, resource.topicFolder + "/" + resource.link, resource.fullImgPath, resource.title, resource.objectivesWithoutHeadder) }}
+# endfor
+</div>1
 # endblock

@@ -1,11 +1,17 @@
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })

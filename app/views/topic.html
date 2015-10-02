@@ -3,24 +3,13 @@
 
 {{ topicheader("../index.html", "glyphicon-chevron-left", topic.title) }}
 
-#for talkchunks in talks
-  <div class="row equal">
-    # for resource in talkchunks
-      <div class="col-md-4">
-        {{ vpanel ("panel-info", resource.link, resource.imgPath, resource.title, resource.objectivesWithoutHeadder) }}
-      </div>
-    # endfor
-  </div>
-#endfor
+<div class="ui link cards">
+  #for resource in talks
+    {{ card ("film", resource.link, resource.imgPath, resource.title, resource.objectivesWithoutHeadder) }}
+  #endfor
 
-#for labchunks in labs
-  <div class="row equal">
-    # for resource in labchunks
-      <div class="col-md-4">
-        {{ vpanel ("panel-danger", resource.link, resource.imgPath, resource.title, resource.objectivesWithoutHeadder) }}
-      </div>
-    # endfor
+  #for resource in labs
+    {{ card ("lab", resource.link, resource.imgPath, resource.title, resource.objectivesWithoutHeadder) }}
+  #endfor
   </div>
-#endfor
-
 # endblock 

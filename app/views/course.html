@@ -3,12 +3,13 @@
 
 {{ header("#", "glyphicon-chevron-right", course.title, "Topics") }}
 
+<div class="ui link cards">
+
 # for topic in course.topicList
-  <div class="row">
-    {{ hpanel ("panel-primary", "./" + topic.folder + "/index.html", "./" + topic.folder + "/" + topic.topicImg, topic.title, topic.contentWithoutHeadder) }}
-  </div>
-  <hr>
+  {{ card ("sitemap", "./" + topic.folder + "/index.html", "./" + topic.folder + "/" + topic.topicImg, topic.title, topic.contentWithoutHeadder) }}
 # endfor
+
+</div>
 
 <hr>
 # endblock
