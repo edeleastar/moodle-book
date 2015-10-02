@@ -7,12 +7,12 @@
 
 
 <div class="ui fixed top pointing inverted borderless compact menu labmenu">
-  <header class="header item">
-    <!--<a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>-->
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
     {{topic.title}}
-  </header>
+  </header>-->
 
-  <a class="active item" data-tab="{{book.chapters[0].shortTitle}}"> {{book.chapters[0].shortTitle}} </a>
+  <a class="active header item" data-tab="{{book.chapters[0].shortTitle}}"> {{book.chapters[0].shortTitle}} </a>
   # for chapter in book.chapters[1:]
     <a class="item" data-tab="{{chapter.shortTitle}}"> {{chapter.shortTitle}} </a>
   # endfor
