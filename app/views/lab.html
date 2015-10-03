@@ -19,10 +19,9 @@
     # endfor
 </div>
 
-<br><br><br>
 
 # for chapter in book.chapters
-<div class="ui bottom attached tab segment lab" data-tab="{{chapter.shortTitle}}">
+<div id="labcontent" class="ui bottom attached tab segment lab" data-tab="{{chapter.shortTitle}}">
   {{ chapter.content }}
 </div>
 # endfor
@@ -33,6 +32,12 @@ $('.ui.menu .item')
   .tab({
     history: true,
     historyType: 'hash'
+  })
+;
+  $('.ui.sticky')
+  .sticky({
+    bottomOffset : 50,
+    context      : '#labcontent'
   })
 ;
 </script>
