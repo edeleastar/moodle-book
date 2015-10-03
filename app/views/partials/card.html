@@ -1,18 +1,16 @@
 #macro card (type, contentLink, imgLink, title, objectives)
-  <div class="ui card">
+  <a class="ui card" href="{{contentLink}}">
     <div class="content">
       <div class="right floated meta"> <i class="{{type}} large icon"></i></div>
-      <a class="header" href="{{contentLink}}"> {{title}} </a>
+      <div class="header"> {{title}} </div>
     </div>
-    <div class="image">
-      <a class="image" href="{{contentLink}}">
-        <img src="{{imgLink}}">
-      </a>
+    <div class="ui bordered rounded image">
+      <img src="{{imgLink}}">
     </div>
     <div class="content">
       <div class="description">
          {{objectives}}
       </div>
     </div>
-  </div>
+  </a>
 #endmacro

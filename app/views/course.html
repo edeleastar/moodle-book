@@ -3,7 +3,7 @@
 
 {{ header("#", "glyphicon-chevron-right", course.title, "Topics") }}
 
-<div class="ui link cards">
+<div class="ui four doubling stackable cards">
 
 # for topic in course.topicList
   {{ card ("sitemap", "./" + topic.folder + "/index.html", "./" + topic.folder + "/" + topic.topicImg, topic.title, topic.contentWithoutHeadder) }}
