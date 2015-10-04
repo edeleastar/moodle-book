@@ -5,8 +5,7 @@
 # include "css/lab.css"
 </style>
 
-
-<div class="ui fixed top pointing inverted borderless center aligned menu labmenu">
+<div class="ui fixed top pointing  menu labmenu">
   <header class="header item">
     <a href="../index.html">
       <i class="sitemap icon"></i>
@@ -25,11 +24,10 @@
     </div>
 </div>
 
-
 <br><br>
 
   # for chapter in book.chapters
-  <div  class="ui tab  segment lab" data-tab="{{chapter.shortTitle}}">
+  <div  class="ui tab segment lab" data-tab="{{chapter.shortTitle}}">
     {{ chapter.content }}
   </div>
 # endfor
