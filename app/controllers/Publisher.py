@@ -70,6 +70,8 @@ class Publisher:
     talks = chunks(topic.talkList, 3)
 
     self.publishPage('topic.html',  self.resolveTopicPath(topic) +'/index.html',  dict(course=course, topic=topic, labs=topic.bookList, talks=topic.talkList))
+    self.publishPage('topicmoodle.html',  self.resolveTopicPath(topic) +'/indexmoodle.html',  dict(course=course, topic=topic, labs=topic.bookList, talks=topic.talkList))
+
     self.publishPage('moodle.html', self.resolveTopicPath(topic) +'/moodle.html', dict(course=course, topic=topic, labs=labs, talks=talks))
 
     topicDir = os.getcwd()
