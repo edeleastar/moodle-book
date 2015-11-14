@@ -1,0 +1,14 @@
+<iframe id="output" class="embed-responsive-item" height="1200" width="900">
+</iframe>
+<script>
+$.ajax({
+  type: 'GET',
+  url: '//wit-computing.github.io/algorithms-2015/topic03/indexmoodle.html',
+  xhrFields: {
+    withCredentials: false
+  },
+  success: function(data) {
+   $('#output').contents().find('html').html(data);
+  }
+});
+</script>
