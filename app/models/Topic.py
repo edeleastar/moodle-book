@@ -1,7 +1,7 @@
 from utils.MarkdownUtils import parse_markdown, parse_markdown_without_header 
 from glob import glob
 from os import getcwd, path
-from utils.FileUtils import getHeadder, getImageFile
+from utils.FileUtils import getHeadder, getImageFile, getVideoLink
 from utils.CmdUtils import checkFileExists
 from os import remove
 
@@ -36,6 +36,10 @@ class TalkSummary (Resource):
     else:
       print ('Cannot locate md for talk in ' + self.topicFolder + ": " + name)
       exit()
+
+    videoFile = fileName + ".video"
+    if (path.isfile(videoFile)):
+      self.videoLink = getVideoLink(videoFile)
 
 
 class BookSummary (Resource):

@@ -3,7 +3,7 @@
 
 <div class="ui four doubling stackable cards">
   #for resource in talks
-    {{ card ("film", course.courseUrl  + topic.folder + resource.link[1:], course.courseUrl  + topic.folder + resource.imgPath[1:], resource.title, resource.objectivesWithoutHeadder) }}
+    {{ card ("film", course.courseUrl  + topic.folder + resource.link[1:], course.courseUrl  + topic.folder + resource.imgPath[1:], resource.title, resource.objectivesWithoutHeadder, resource.videoLink) }}
   #endfor
 
   #for resource in labs

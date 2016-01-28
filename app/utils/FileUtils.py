@@ -61,7 +61,14 @@ def getCourseUrl():
      with open('courseurl', 'r') as f:
        courseUrl= f.readline()    
   return courseUrl    
-    
+
+def getVideoLink(videoPath):
+  videoLink = ""
+  if path.exists(videoPath):
+    with open(videoPath, 'r') as f:
+      videoLink = f.readline()
+  return videoLink
+
 def getContributors():
   contributors = ""
   creditPath = 'credits' 
