@@ -1,4 +1,4 @@
-from Chapter import Chapter
+from models.Chapter import Chapter
 from utils.MarkdownUtils import parse_markdown
 from os import remove
 from utils.FileUtils import getHeadder

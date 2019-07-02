@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 import settings
 import jinja2
-from Publisher import Publisher
+from controllers.Publisher import Publisher
 
 class App:
   def __init__(self, path):

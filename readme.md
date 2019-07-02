@@ -3,7 +3,7 @@ moodle-book
 
 A Course Creation tool for generating moodle books + a general moodle-independent static course web site from markdown content.
 
-##Introduction
+## Introduction
 
 The `moodle book` command-line course creation tool will generate a set of moodle books:
 
@@ -47,26 +47,26 @@ This is incorporated as `fenced code blocks`, an example here:
 
 - [code blocks](http://edeleastar.github.io/moodle-book-skeleton/public/topic01/book/index.html#/02)
 
-##Installation
+## Installation
 
 The system requires Python 2.7 to be installed. In addition, the python installation will need the 'easy_install' utility to be included on the path. If these are in place, then the following commands will include in python the requisite libraries:
 
-~~~
+```
 easy_install markdown
 easy_install jinja2
-~~~
+```
 
 The system will not run unless these are installed successfully.  To install the moodle-book tool, clone this repository:
 
- - [moodle-book](https://github.com/edeleastar/moodle-book)
+* *[moodle-book](https://github.com/edeleastar/moodle-book)
 
  or just download and unarchive a zipped version:
 
- - [moodle-book.zip](https://github.com/edeleastar/moodle-book/archive/master.zip)
+* [moodle-book.zip](https://github.com/edeleastar/moodle-book/archive/master.zip)
 
-Then place './moodle-book/app' on the path.
+Then place './moodle-book/app' on the path (add the full path to your environment variables)
 
-##Test
+## Test
 
 To test the system, clone the demo repository:
 
@@ -74,13 +74,13 @@ To test the system, clone the demo repository:
 
 Run a shell/command prompt and change into the moodle-demo-skeleton folder and enter:
 
-~~~
+```
 mb.py
-~~~
+```
 
 If all goes smoothly, you should see on the console a list of the topics as they are generated:
 
-~~~
+```
 Publishing full course
 Writing topic01
   -->Lab 01
@@ -89,13 +89,13 @@ Writing topic02
   -->Lab 02-B
 Writing topic03
   -->Lab 03
-~~~
+```
 
 Open the ./public/index.html folder and it should resemble:
 
 - [moodle-book-skeleton-site](http://edeleastar.github.io/moodle-book-skeleton/public)
 
-##Structure
+## Structure
 
 The course structure is derived from conventions represented in the directory and file names:
 
@@ -128,19 +128,20 @@ The course structure is derived from conventions represented in the directory an
 
 (Just showing one topic)
 
-- course.md: Course title + summary
-- credits: list of contributors
-- mbignore: list of topics which are to be excluded for course publish (optionl)
-- ga: a google analytics tracking code (optional)
-- topic01: the first topic
-- topic02: the second topic
-- etc..
+
+* course.md: Course title + summary
+* credits: list of contributors
+* mbignore: list of topics which are to be excluded for course publish (optionl)
+* ga: a google analytics tracking code (optional)
+* topic01: the first topic
+* topic02: the second topic
+* etc..
 
 Each topic consists of:
 
-- topic.md: Topic title + summary
-- pdf: a collection of PDFs, usually slide decks or other documents
-- book: the source for a `moodle book`, which will also be produced as a standalone web site. There can me several of these, each one must be named beginning with 'book', eg. book-01, book-02 etc...
+* *topic.md: Topic title + summary
+* pdf: a collection of PDFs, usually slide decks or other documents
+* book: the source for a `moodle book`, which will also be produced as a standalone web site. There can me several of these, each one must be named beginning with 'book', eg. book-01, book-02 etc...
 
 Each book then contains the 'chapters' in the book, numbered as  `Number.Title.md`, where number is typically two digits starting with `00`. Eg:
 
@@ -156,11 +157,11 @@ In the above lab, the static site will have titles 'Lab-01', '01', '02' ... 'Exe
 
 If one of the chapters needs images or other resources, then can be placed in subdirectories of the book and will be encapsulated into the generated site/resource. Use standard markdown relative linking (examples in the moodle-book-skeleton). 
 
-##The mb.py command
+## The mb.py command
 
 The `mb.py` command can be run from any of the folders. If within a book, it will just generate the book resources. If in a topic, it will generate the topic resorce + all contained books. And if in the course (top level) folder, it will generate the complete course (excluding any topics listed in the optional mbignore file). It always generates this to the './public' folder.
 
-##Customisation
+## Customisation
 
 The 'moodle-book/app/view' folder:
 
@@ -179,9 +180,9 @@ Representing different aspects of the generated resources. You can modify these 
 
 Additionally, there are other opportunities for customisation in this folder '/moodle-book/public/custom/', where you can augment the existing main.css and main.js files. Again these will be overwritten by a pull on the repo, so do not loose your changes in that event.
 
-##Hosting
+## Hosting
 
-###On Moodle:
+### On Moodle:
 
 There are two options for hosting the individual 'books' on moodle.
 
@@ -189,41 +190,41 @@ There are two options for hosting the individual 'books' on moodle.
 
 2. A standalone version of the ook (called book-archive.zip) can be dropped straight onto a moodle topic, and unarchived there. Set the 'main page' to the first html page of the lab. 
 
-###On Github
+### On Github
 
 The full course web can be hosted on any hosting service. On guthub, create repository, and create a branch called 'gh-pages'. Commit the './public' folder to this branch and push to github. The course will be available on 'yourname.github.io/repisitoryname'
 
-###On Bitbucket:
+### On Bitbucket:
 
 Bitbucket has a similar mechanism for hosting static sites:
 
 - [Hosting Static Sites on Bitbucket](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket)
 
-##Analytics
+## Analytics
 
 If you place a file called 'ga' in the root of the course containing a valid Google Analytics code, for example:
 
-~~~
+```
 UA-12345678-2
-~~~
+```
 
 The appropriate Google Analytics js fragment is inserted into each page. These codes can be created, and the web  traffic monitored, on the [Google Analytics](http://www.google.ie/analytics/) site.
 
 
-##0.2 Update
+## 0.2 Update
 
 The pdf folder, inside a topic, currently looks like this:
 
-~~~
+```
 │   ├── pdf
 │   │   ├── slides-1.pdf
 │   │   ├── slides-2.pdf
 │   │   └── slides-3.pdf
-~~~
+```
 
 This continues to work as before, however if you provide images + .md files named identically to the slides e.g:
 
-~~~
+```
 │   ├── pdf
 │   │   ├── slides-1.pdf
 │   │   ├── slides-1.png
@@ -234,7 +235,7 @@ This continues to work as before, however if you provide images + .md files name
 │   │   ├── slides-3.pdf
 │   │   ├── slides-3.png
 │   │   ├── slides-3.md
-~~~
+```
 
 Then the link to the slides will be the image, and the content in the .md file will be presented alongside the link. Here is an example if how it may look:
 
@@ -254,13 +255,13 @@ And this is a published version of the same course:
 
 - <http://edeleastar.github.io/moodle-book-demo-2-public>
 
-A published 
 
-##0.3 Update
+
+## 0.3 Update
 
 For use with moodle, generate in 'moodle-labels' individual HTML fragments that can he directly loaded into moodle labels. These fragments are styled with bootstrap 3 conventions.
 
-##0.4 Update
+## 0.4 Update
 
 Switch to 'solarized_light' instead of 'school_book' for code segments.
 
@@ -271,7 +272,3 @@ However, if '-e' is enabled and you wish to browse the course materials locally,
 New switch: -w (for 'wall'). This will generate a summary 'wall' for all lecture and lab cards. For example here:
 
 - <http://edeleastar.github.io/moodle-book-demo-2-public>
-
-
-
-

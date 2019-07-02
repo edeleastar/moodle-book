@@ -1,5 +1,5 @@
 from markdown import markdown
-from FileUtils import  read_data_from_file
+from utils.FileUtils import  read_data_from_file
 from os import remove
 import settings
 
@@ -11,7 +11,7 @@ def parse_markdown(md_location):
   return html
 
 def generate_html(content):
-  html = markdown(content, ['fenced_code', 'tables'], output_format='html5')
+  html = markdown(content, extensions=['fenced_code', 'tables'], output_format='html5')
   return html
 
 def parse_markdown_without_header(md_location):
