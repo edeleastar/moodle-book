@@ -1,5 +1,5 @@
 from glob import glob
-from ChapterMd import ChapterMd
+from models.ChapterMd import ChapterMd
 from os import walk, getcwd, path
 import sys
 
